@@ -5,6 +5,7 @@ const urlsToCache = [
   "/favicon.ico",
   "/icon-192.png",
   "/icon-512.png",
+  "/appicon-1024.png",
   "/offline.html"
 ];
 
