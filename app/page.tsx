@@ -40,7 +40,27 @@ export default function HomePage() {
         </p>
 
         {/* CTA */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+		<div className="mt-10 flex flex-wrap gap-4">
+		  <a
+			href="#contact"
+			className="rounded-2xl bg-[#3A8DFF] px-6 py-3 font-semibold shadow-lg"
+		  >
+			Κλείσε συνάντηση
+		  </a>
+
+		  <a
+			href="#services"
+			className="rounded-2xl border border-white/15 px-6 py-3"
+		  >
+			Δες υπηρεσίες
+		  </a>
+
+		  <InstallPWAButton />
+		</div>       
+
+/*
+
+	   <div className="mt-10 flex flex-wrap justify-center gap-4">
           <a
             href="#contact"
             className="rounded-2xl bg-[#3A8DFF] px-6 py-3 font-semibold shadow-lg"
@@ -58,7 +78,7 @@ export default function HomePage() {
           <InstallPWAButton />
         </div>
       </section>
-
+*/
       {/* SERVICES */}
       <section
         id="services"

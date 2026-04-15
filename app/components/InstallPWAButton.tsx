@@ -14,16 +14,21 @@ export default function InstallPWAButton() {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event: Event) => {
+      console.log("beforeinstallprompt fired");
       event.preventDefault();
       setDeferredPrompt(event as BeforeInstallPromptEvent);
+      setShowFallback(false);
     };
 
     const handleAppInstalled = () => {
+      console.log("appinstalled fired");
       setIsInstalled(true);
       setDeferredPrompt(null);
+      setShowFallback(false);
     };
 
     const isStandalone =
@@ -33,6 +38,7 @@ export default function InstallPWAButton() {
 
     if (isStandalone) {
       setIsInstalled(true);
+      return;
     }
 
     window.addEventListener(
@@ -41,12 +47,17 @@ export default function InstallPWAButton() {
     );
     window.addEventListener("appinstalled", handleAppInstalled);
 
+    const fallbackTimer = window.setTimeout(() => {
+      setShowFallback(true);
+    }, 3000);
+
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
         handleBeforeInstallPrompt as EventListener
       );
       window.removeEventListener("appinstalled", handleAppInstalled);
+      window.clearTimeout(fallbackTimer);
     };
   }, []);
 
@@ -58,15 +69,28 @@ export default function InstallPWAButton() {
     setDeferredPrompt(null);
   };
 
-  if (isInstalled || !deferredPrompt) return null;
+  if (isInstalled) return null;
 
-  return (
-    <button
-      onClick={handleInstall}
-      className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white"
-      aria-label="Εγκατάσταση εφαρμογής"
-    >
-      Εγκατάσταση εφαρμογής
-    </button>
-  );
+  if (deferredPrompt) {
+    return (
+      <button
+        onClick={handleInstall}
+        className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:bg-white/5"
+        aria-label="Εγκατάσταση εφαρμογής"
+      >
+        Εγκατάσταση εφαρμογής
+      </button>
+    );
+  }
+
+  if (showFallback) {
+    return (
+      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
+        Για εγκατάσταση, χρησιμοποίησε το εικονίδιο install του browser
+        ή “Add to Home Screen”.
+      </div>
+    );
+  }
+
+  return null;
 }
