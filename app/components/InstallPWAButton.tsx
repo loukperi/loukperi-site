@@ -17,20 +17,6 @@ export default function InstallPWAButton() {
   const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (event: Event) => {
-      console.log("beforeinstallprompt fired");
-      event.preventDefault();
-      setDeferredPrompt(event as BeforeInstallPromptEvent);
-      setShowFallback(false);
-    };
-
-    const handleAppInstalled = () => {
-      console.log("appinstalled fired");
-      setIsInstalled(true);
-      setDeferredPrompt(null);
-      setShowFallback(false);
-    };
-
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
       (window.navigator as Navigator & { standalone?: boolean }).standalone ===
@@ -41,15 +27,30 @@ export default function InstallPWAButton() {
       return;
     }
 
+    const handleBeforeInstallPrompt = (event: Event) => {
+      event.preventDefault();
+      setDeferredPrompt(event as BeforeInstallPromptEvent);
+      setShowFallback(false);
+      console.log("beforeinstallprompt fired");
+    };
+
+    const handleAppInstalled = () => {
+      setIsInstalled(true);
+      setDeferredPrompt(null);
+      setShowFallback(false);
+      console.log("appinstalled fired");
+    };
+
     window.addEventListener(
       "beforeinstallprompt",
       handleBeforeInstallPrompt as EventListener
     );
     window.addEventListener("appinstalled", handleAppInstalled);
 
-    const fallbackTimer = window.setTimeout(() => {
+    const timer = window.setTimeout(() => {
       setShowFallback(true);
-    }, 3000);
+      console.log("fallback shown");
+    }, 2000);
 
     return () => {
       window.removeEventListener(
@@ -57,26 +58,22 @@ export default function InstallPWAButton() {
         handleBeforeInstallPrompt as EventListener
       );
       window.removeEventListener("appinstalled", handleAppInstalled);
-      window.clearTimeout(fallbackTimer);
+      window.clearTimeout(timer);
     };
   }, []);
-
-  const handleInstall = async () => {
-    if (!deferredPrompt) return;
-
-    await deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    setDeferredPrompt(null);
-  };
 
   if (isInstalled) return null;
 
   if (deferredPrompt) {
     return (
       <button
-        onClick={handleInstall}
-        className="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:bg-white/5"
-        aria-label="Εγκατάσταση εφαρμογής"
+        onClick={async () => {
+          if (!deferredPrompt) return;
+          await deferredPrompt.prompt();
+          await deferredPrompt.userChoice;
+          setDeferredPrompt(null);
+        }}
+        className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white"
       >
         Εγκατάσταση εφαρμογής
       </button>
@@ -85,9 +82,8 @@ export default function InstallPWAButton() {
 
   if (showFallback) {
     return (
-      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
-        Για εγκατάσταση, χρησιμοποίησε το εικονίδιο install του browser
-        ή “Add to Home Screen”.
+      <div className="rounded-2xl border border-amber-300/30 bg-amber-400/10 px-4 py-3 text-sm text-amber-100">
+        Εγκατάσταση: χρησιμοποίησε το εικονίδιο install του browser ή “Add to Home Screen”.
       </div>
     );
   }
