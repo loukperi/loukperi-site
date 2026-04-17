@@ -195,7 +195,10 @@ function SiteNavbar() {
           </a>
         </nav>
 
-        <a href="#contact" className="hidden sm:inline-flex items-center rounded-2xl bg-[#3A8DFF] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]">
+        <a
+          href="#contact"
+          className="hidden sm:inline-flex items-center rounded-2xl bg-[#3A8DFF] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]"
+        >
           Κλείσε συνάντηση
         </a>
       </div>
@@ -248,7 +251,9 @@ export default function LoukPeriLandingPage() {
         <SiteNavbar />
 
         <section className="relative overflow-hidden">
-          <div className={`${containerClass} pb-24 pt-24 sm:pb-28 sm:pt-28 lg:pb-32 lg:pt-36`}>
+          <div
+            className={`${containerClass} pb-24 pt-24 sm:pb-28 sm:pt-28 lg:pb-32 lg:pt-36`}
+          >
             <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
               <div className="relative z-10">
                 <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-blue-200">
@@ -286,28 +291,43 @@ export default function LoukPeriLandingPage() {
                 </div>
               </div>
 
-              <div className="relative flex flex-col items-center justify-center">
-                <div className="absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.18),transparent_45%)] blur-2xl" />
+              <div className="relative flex items-center justify-center">
+                <div className="absolute -inset-8 rounded-[48px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.18),transparent_45%)] blur-2xl" />
 
-                <Image
-                  src="/logo-hero-premium.png"
-                  alt="LoukPeri premium logo"
-                  width={900}
-                  height={420}
-                  className="relative z-10 h-auto w-full max-w-[560px] object-contain"
-                  priority
-                />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                  <Image
+                    src="/logo-icon-flat.png"
+                    alt=""
+                    width={520}
+                    height={520}
+                    className="h-auto w-full max-w-[420px] object-contain opacity-[0.08] blur-[1px] sm:max-w-[460px] lg:max-w-[500px]"
+                    aria-hidden="true"
+                  />
+                </div>
 
-                <div className="relative z-10 mt-8 w-full max-w-[520px] rounded-[28px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+                <div className="relative z-10 w-full max-w-[560px] rounded-[30px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-sm">
                   <div className="mb-6 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
-                        Operations Dashboard
-                      </p>
-                      <h3 className="mt-2 text-2xl font-semibold text-white">
-                        Daily Overview
-                      </h3>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+                        <Image
+                          src="/logo-icon-flat.png"
+                          alt="LoukPeri"
+                          width={24}
+                          height={24}
+                          className="h-6 w-6 object-contain"
+                        />
+                      </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
+                          LoukPeri
+                        </p>
+                        <h3 className="mt-1 text-2xl font-semibold text-white">
+                          Daily Overview
+                        </h3>
+                      </div>
                     </div>
+
                     <span className="rounded-full border border-[#3A8DFF]/20 bg-[#3A8DFF]/10 px-3 py-1 text-xs font-medium text-blue-200">
                       Custom Setup
                     </span>
@@ -333,6 +353,21 @@ export default function LoukPeriLandingPage() {
                         </div>
                       </div>
                     ))}
+                  </div>
+
+                  <div className="mt-5 rounded-2xl border border-white/6 bg-white/[0.03] p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-sm text-slate-400">
+                        Operational Visibility
+                      </span>
+                      <span className="text-sm font-medium text-blue-200">
+                        Better coordination
+                      </span>
+                    </div>
+
+                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/5">
+                      <div className="h-full w-[72%] rounded-full bg-[#3A8DFF]" />
+                    </div>
                   </div>
                 </div>
               </div>
