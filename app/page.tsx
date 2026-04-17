@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import InstallPWAButton from "./components/InstallPWAButton";
+import BackToTopButton from "./components/BackToTopButton";
 
 const services = [
   {
@@ -235,6 +236,8 @@ function SiteFooter() {
 export default function LoukPeriLandingPage() {
   return (
     <>
+      <BackToTopButton />
+
       <div className="fixed bottom-4 right-4 z-50 sm:bottom-5 sm:right-5">
         <a
           href="#contact"
