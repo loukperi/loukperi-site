@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import InstallPWAButton from "./components/InstallPWAButton";
 
 const services = [
@@ -104,9 +105,9 @@ const containerClass = "mx-auto max-w-7xl px-6 lg:px-8";
 const cardClass =
   "rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm transition-all duration-300 hover:border-white/15 hover:bg-white/[0.06]";
 const primaryButtonClass =
-  "inline-flex items-center rounded-2xl bg-[#3A8DFF] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]";
+  "inline-flex items-center justify-center rounded-2xl bg-[#3A8DFF] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]";
 const secondaryButtonClass =
-  "inline-flex items-center rounded-2xl border border-white/12 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-white/[0.06]";
+  "inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-white/[0.06]";
 
 function SectionHeader({
   eyebrow,
@@ -155,6 +156,79 @@ function GlassCard({
   return <div className={`${cardClass} ${className}`}>{children}</div>;
 }
 
+function SiteNavbar() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1F3A]/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+        <a href="#" className="flex items-center gap-3">
+          <Image
+            src="/logo-icon-flat.png"
+            alt="LoukPeri"
+            width={36}
+            height={36}
+            className="h-9 w-9 object-contain"
+            priority
+          />
+          <span className="text-lg font-semibold tracking-tight text-white">
+            LoukPeri
+          </span>
+        </a>
+
+        <nav className="hidden items-center gap-8 md:flex">
+          <a
+            href="#services"
+            className="text-sm text-slate-300 transition hover:text-white"
+          >
+            Υπηρεσίες
+          </a>
+          <a
+            href="#process"
+            className="text-sm text-slate-300 transition hover:text-white"
+          >
+            Πώς δουλεύουμε
+          </a>
+          <a
+            href="#contact"
+            className="text-sm text-slate-300 transition hover:text-white"
+          >
+            Επικοινωνία
+          </a>
+        </nav>
+
+        <a href="#contact" className="hidden sm:inline-flex items-center rounded-2xl bg-[#3A8DFF] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]">
+          Κλείσε συνάντηση
+        </a>
+      </div>
+    </header>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="border-t border-white/10 bg-[#0B1F3A]/90 py-10">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left lg:px-8">
+        <div className="flex flex-col items-center gap-4 sm:items-start">
+          <Image
+            src="/logo-footer-white.png"
+            alt="LoukPeri"
+            width={420}
+            height={120}
+            className="h-auto w-[220px] object-contain"
+          />
+          <p className="max-w-md text-sm leading-6 text-white/60">
+            Custom business systems για επιχειρήσεις που θέλουν πιο καθαρή
+            λειτουργία και καλύτερη οργάνωση.
+          </p>
+        </div>
+
+        <p className="text-sm text-white/50">
+          © {new Date().getFullYear()} LoukPeri. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
 export default function LoukPeriLandingPage() {
   return (
     <>
@@ -170,6 +244,8 @@ export default function LoukPeriLandingPage() {
       <main className="min-h-screen overflow-hidden bg-[#0B1F3A] text-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.22),transparent_28%),radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_22%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent)]" />
+
+        <SiteNavbar />
 
         <section className="relative overflow-hidden">
           <div className={`${containerClass} pb-24 pt-24 sm:pb-28 sm:pt-28 lg:pb-32 lg:pt-36`}>
@@ -210,79 +286,53 @@ export default function LoukPeriLandingPage() {
                 </div>
               </div>
 
-              <div className="relative">
+              <div className="relative flex flex-col items-center justify-center">
                 <div className="absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.18),transparent_45%)] blur-2xl" />
 
-                <div className="relative rounded-[34px] border border-white/10 bg-slate-950/35 p-4 shadow-[0_25px_80px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-5">
-                  <div className="rounded-[28px] border border-white/8 bg-[#08172d] p-5 sm:p-6">
-                    <div className="mb-6 flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
-                          Operations Dashboard
-                        </p>
-                        <h3 className="mt-2 text-2xl font-semibold text-white">
-                          Daily Overview
-                        </h3>
-                      </div>
+                <Image
+                  src="/logo-hero-premium.png"
+                  alt="LoukPeri premium logo"
+                  width={900}
+                  height={420}
+                  className="relative z-10 h-auto w-full max-w-[560px] object-contain"
+                  priority
+                />
 
-                      <div className="rounded-full border border-[#3A8DFF]/20 bg-[#3A8DFF]/10 px-3 py-1 text-xs font-medium text-blue-200">
-                        Custom Setup
-                      </div>
+                <div className="relative z-10 mt-8 w-full max-w-[520px] rounded-[28px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+                  <div className="mb-6 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
+                        Operations Dashboard
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold text-white">
+                        Daily Overview
+                      </h3>
                     </div>
+                    <span className="rounded-full border border-[#3A8DFF]/20 bg-[#3A8DFF]/10 px-3 py-1 text-xs font-medium text-blue-200">
+                      Custom Setup
+                    </span>
+                  </div>
 
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {[
-                        {
-                          label: "Παραγγελίες",
-                          value: "124",
-                          note: "Σημερινή εικόνα",
-                        },
-                        {
-                          label: "Εκκρεμότητες",
-                          value: "8",
-                          note: "Απαιτούν ενέργεια",
-                        },
-                        {
-                          label: "Αποθέματα",
-                          value: "Live",
-                          note: "Συγκεντρωμένη εικόνα",
-                        },
-                        {
-                          label: "Ροές εργασίας",
-                          value: "Auto",
-                          note: "Λιγότερη χειροκίνητη δουλειά",
-                        },
-                      ].map((item) => (
-                        <div
-                          key={item.label}
-                          className="rounded-2xl border border-white/6 bg-white/[0.04] p-4"
-                        >
-                          <div className="text-sm text-slate-400">
-                            {item.label}
-                          </div>
-                          <div className="mt-2 text-2xl font-semibold text-white">
-                            {item.value}
-                          </div>
-                          <div className="mt-1 text-sm text-slate-500">
-                            {item.note}
-                          </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {[
+                      ["Παραγγελίες", "124", "Σημερινή εικόνα"],
+                      ["Εκκρεμότητες", "8", "Απαιτούν ενέργεια"],
+                      ["Αποθέματα", "Live", "Συγκεντρωμένη εικόνα"],
+                      ["Ροές εργασίας", "Auto", "Λιγότερη χειροκίνητη δουλειά"],
+                    ].map(([label, value, note]) => (
+                      <div
+                        key={label}
+                        className="rounded-2xl border border-white/6 bg-white/[0.04] p-4"
+                      >
+                        <div className="text-sm text-slate-400">{label}</div>
+                        <div className="mt-2 text-2xl font-semibold text-white">
+                          {value}
                         </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-5 rounded-2xl border border-white/6 bg-white/[0.03] p-4">
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="text-sm text-slate-400">
-                          Operational Visibility
-                        </span>
-                        <span className="text-sm font-medium text-blue-200">
-                          Better coordination
-                        </span>
+                        <div className="mt-1 text-sm text-slate-500">
+                          {note}
+                        </div>
                       </div>
-                      <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/5">
-                        <div className="h-full w-[72%] rounded-full bg-[#3A8DFF]" />
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -395,7 +445,7 @@ export default function LoukPeriLandingPage() {
           </div>
         </section>
 
-        <section className={sectionClass}>
+        <section id="process" className={sectionClass}>
           <div className={containerClass}>
             <SectionHeader
               eyebrow="Process"
@@ -441,7 +491,7 @@ export default function LoukPeriLandingPage() {
 
               <div className="mt-8">
                 <a
-                  href="mailto:info@loukperi.gr?subject=Αίτημα για δωρεάν αρχική αξιολόγηση"
+                  href="mailto:info@loukperi.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CE%B4%CF%89%CF%81%CE%B5%CE%AC%CE%BD%20%CE%B1%CF%81%CF%87%CE%B9%CE%BA%CE%AE%20%CE%B1%CE%BE%CE%B9%CE%BF%CE%BB%CF%8C%CE%B3%CE%B7%CF%83%CE%B7"
                   className={primaryButtonClass}
                 >
                   Κλείσε δωρεάν συνάντηση
@@ -467,34 +517,20 @@ export default function LoukPeriLandingPage() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href="mailto:info@loukperi.gr?subject=Ενδιαφέρον για συνεργασία"
+                href="mailto:info@loukperi.gr?subject=%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BD%20%CE%B3%CE%B9%CE%B1%20%CF%83%CF%85%CE%BD%CE%B5%CF%81%CE%B3%CE%B1%CF%83%CE%AF%CE%B1"
                 className={primaryButtonClass}
               >
                 Μίλησε μαζί μας
               </a>
 
-              <div className="[&>button]:inline-flex [&>button]:items-center [&>button]:rounded-2xl [&>button]:border [&>button]:border-white/12 [&>button]:bg-white/[0.03] [&>button]:px-7 [&>button]:py-3.5 [&>button]:text-sm [&>button]:font-medium [&>button]:text-white [&>button]:transition [&>button]:duration-300 hover:[&>button]:bg-white/[0.06]">
+              <div className="[&>button]:inline-flex [&>button]:items-center [&>button]:justify-center [&>button]:rounded-2xl [&>button]:border [&>button]:border-white/12 [&>button]:bg-white/[0.03] [&>button]:px-7 [&>button]:py-3.5 [&>button]:text-sm [&>button]:font-medium [&>button]:text-white [&>button]:transition [&>button]:duration-300 hover:[&>button]:bg-white/[0.06]">
                 <InstallPWAButton />
               </div>
             </div>
           </div>
         </section>
 
-        <footer className="border-t border-white/10 bg-[#0B1F3A]/90 py-8">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left lg:px-8">
-            <div>
-              <p className="text-sm font-semibold text-white">LoukPeri</p>
-              <p className="mt-1 text-sm text-white/60">
-                Custom business systems για επιχειρήσεις που θέλουν πιο καθαρή
-                λειτουργία και καλύτερη οργάνωση.
-              </p>
-            </div>
-
-            <p className="text-sm text-white/50">
-              © {new Date().getFullYear()} LoukPeri. All rights reserved.
-            </p>
-          </div>
-        </footer>
+        <SiteFooter />
       </main>
     </>
   );
