@@ -294,17 +294,6 @@ export default function LoukPeriLandingPage() {
               <div className="relative flex items-center justify-center">
                 <div className="absolute -inset-8 rounded-[48px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.18),transparent_45%)] blur-2xl" />
 
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                  <Image
-                    src="/logo-icon-flat.png"
-                    alt=""
-                    width={520}
-                    height={520}
-                    className="h-auto w-full max-w-[420px] object-contain opacity-[0.08] blur-[1px] sm:max-w-[460px] lg:max-w-[500px]"
-                    aria-hidden="true"
-                  />
-                </div>
-
                 <div className="relative z-10 w-full max-w-[560px] rounded-[30px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-sm">
                   <div className="mb-6 flex items-center justify-between">
                     <div className="flex items-center gap-3">
