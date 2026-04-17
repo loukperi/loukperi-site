@@ -548,7 +548,7 @@ export default function LoukPeriLandingPage() {
               </a>
 
               <div className="[&>button]:inline-flex [&>button]:items-center [&>button]:justify-center [&>button]:rounded-2xl [&>button]:border [&>button]:border-white/12 [&>button]:bg-white/[0.03] [&>button]:px-7 [&>button]:py-3.5 [&>button]:text-sm [&>button]:font-medium [&>button]:text-white [&>button]:transition [&>button]:duration-300 hover:[&>button]:bg-white/[0.06]">
-                <InstallPWAButton />
+                <InstallPWAButton label="Εγκατάσταση εφαρμογής" />
               </div>
             </div>
           </div>
