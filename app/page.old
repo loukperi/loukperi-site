@@ -2,8 +2,6 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import InstallPWAButton from "./components/InstallPWAButton";
 import BackToTopButton from "./components/BackToTopButton";
-import SiteNavbar from "./components/SiteNavbar";
-import SiteFooter from "./components/SiteFooter";
 
 const services = [
   {
@@ -159,6 +157,82 @@ function GlassCard({
   return <div className={`${cardClass} ${className}`}>{children}</div>;
 }
 
+function SiteNavbar() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1F3A]/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+        <a href="#" className="flex items-center gap-3.5">
+          <Image
+            src="/logo-icon-flat.png"
+            alt="LoukPeri"
+            width={44}
+            height={44}
+            className="h-11 w-11 object-contain"
+            priority
+          />
+          <span className="text-[1.2rem] font-semibold tracking-tight text-white">
+			LoukPeri
+		  </span>
+        </a>
+
+        <nav className="hidden items-center gap-8 md:flex">
+          <a
+            href="#services"
+            className="text-sm text-slate-300 transition hover:text-white"
+          >
+            Υπηρεσίες
+          </a>
+          <a
+            href="#process"
+            className="text-sm text-slate-300 transition hover:text-white"
+          >
+            Πώς δουλεύουμε
+          </a>
+          <a
+            href="#contact"
+            className="text-sm text-slate-300 transition hover:text-white"
+          >
+            Επικοινωνία
+          </a>
+        </nav>
+
+        <a
+          href="#contact"
+          className="hidden sm:inline-flex items-center rounded-2xl bg-[#3A8DFF] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]"
+        >
+          Κλείσε συνάντηση
+        </a>
+      </div>
+    </header>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="border-t border-white/10 bg-[#0B1F3A]/90 py-6">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left lg:px-8">
+        <div className="flex flex-col items-center gap-3 sm:items-start">
+          <Image
+            src="/logo-footer-white.png"
+            alt="LoukPeri"
+            width={420}
+            height={120}
+            className="h-auto w-[160px] object-contain"
+          />
+          <p className="max-w-sm text-sm leading-6 text-white/60">
+            Custom business systems για επιχειρήσεις που θέλουν πιο καθαρή
+            λειτουργία και καλύτερη οργάνωση.
+          </p>
+        </div>
+
+        <p className="text-sm text-white/50">
+          © {new Date().getFullYear()} LoukPeri. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
 export default function LoukPeriLandingPage() {
   return (
     <>
@@ -177,7 +251,7 @@ export default function LoukPeriLandingPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.22),transparent_28%),radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_22%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent)]" />
 
-        <SiteNavbar currentPath="/" />
+        <SiteNavbar />
 
         <section className="relative overflow-hidden">
           <div
@@ -296,7 +370,7 @@ export default function LoukPeriLandingPage() {
         <section id="services" className={sectionClass}>
           <div className={containerClass}>
             <SectionHeader
-              eyebrow="ΥΠΗΡΕΣΙΕΣ"
+              eyebrow="Services"
               title="Τι μπορούμε να υλοποιήσουμε"
               description="Η LoukPeri δημιουργεί επιχειρησιακά συστήματα που βοηθούν τις εταιρείες να οργανώσουν καλύτερα τη δουλειά τους, να μειώσουν τη χειροκίνητη διαχείριση και να αποκτήσουν καθαρή εικόνα των διαδικασιών τους."
             />
@@ -305,7 +379,7 @@ export default function LoukPeriLandingPage() {
               {services.map((item) => (
                 <GlassCard key={item.title} className="h-full">
                   <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-blue-200">
-                    Λύσεις
+                    Solution
                   </div>
                   <h3 className="text-lg font-semibold text-white">
                     {item.title}
@@ -322,7 +396,7 @@ export default function LoukPeriLandingPage() {
         <section className={sectionClass}>
           <div className={containerClass}>
             <SectionHeader
-              eyebrow="ΓΙΑΤΙ LOUKPERI"
+              eyebrow="Why LoukPeri"
               title="Γιατί LoukPeri"
               description="Η προσέγγισή μας βασίζεται στην ουσία: καταλαβαίνουμε τη λειτουργία της επιχείρησης και σχεδιάζουμε λύσεις που βγάζουν νόημα στην πράξη."
             />
