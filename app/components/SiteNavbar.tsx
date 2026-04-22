@@ -226,9 +226,7 @@ export default function SiteNavbar({
                   <p className="text-sm font-semibold tracking-[0.18em] text-slate-400">
                     MENU
                   </p>
-                  <p className="text-base font-semibold text-white">
-                    LoukPeri
-                  </p>
+                  <p className="text-base font-semibold text-white">LoukPeri</p>
                 </div>
               </div>
 

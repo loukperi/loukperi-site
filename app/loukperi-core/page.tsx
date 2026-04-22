@@ -155,17 +155,17 @@ export default function LoukPeriCorePage() {
               <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue-50 to-transparent" />
               <div className="relative">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-                  Core Layers
+                  Βασικά Επίπεδα
                 </p>
 
                 <div className="mt-6 space-y-4">
                   {[
-                    { title: "Dashboards", sub: "Operational visibility" },
-                    { title: "Workflows", sub: "Structured execution" },
-                    { title: "Automations", sub: "Less manual friction" },
+                    { title: "Dashboards", sub: "Επιχειρησιακή ορατότητα" },
+                    { title: "Workflows", sub: "Δομημένη εκτέλεση" },
+                    { title: "Automations", sub: "Λιγότερη χειροκίνητη τριβή" },
                     {
                       title: "Roles & Visibility",
-                      sub: "Clear access and ownership",
+                      sub: "Καθαρή πρόσβαση και ευθύνη",
                     },
                   ].map((item) => (
                     <div
@@ -296,7 +296,7 @@ export default function LoukPeriCorePage() {
       <Section className="relative overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_transparent_28%)]" />
         <div className="relative mx-auto max-w-4xl text-center">
-          <SectionEyebrow className="text-blue-300">POSITIONING</SectionEyebrow>
+          <SectionEyebrow className="text-blue-300">ΤΟΠΟΘΕΤΗΣΗ</SectionEyebrow>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
             Δεν έρχεται να προσθέσει πολυπλοκότητα. Έρχεται να φέρει
             καθαρότητα.
@@ -424,7 +424,7 @@ function HeroSection() {
                     LoukPeri Core
                   </p>
                   <p className="mt-2 text-lg font-semibold text-slate-900">
-                    Operations Overview
+                    Κεντρική Εικόνα Λειτουργίας
                   </p>
                 </div>
                 <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
@@ -434,9 +434,13 @@ function HeroSection() {
 
               <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 {[
-                  { label: "Orders", value: "128", hint: "+12 σήμερα" },
-                  { label: "Pending", value: "14", hint: "Need review" },
-                  { label: "Issues", value: "3", hint: "Priority" },
+                  { label: "Παραγγελίες", value: "128", hint: "+12 σήμερα" },
+                  {
+                    label: "Εκκρεμότητες",
+                    value: "14",
+                    hint: "Χρειάζονται έλεγχο",
+                  },
+                  { label: "Θέματα", value: "3", hint: "Προτεραιότητα" },
                 ].map((item) => (
                   <div
                     key={item.label}
@@ -457,9 +461,9 @@ function HeroSection() {
                 <div className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm">
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-semibold text-slate-900">
-                      Workflow Status
+                      Κατάσταση Ροών
                     </p>
-                    <p className="text-xs text-slate-500">Updated τώρα</p>
+                    <p className="text-xs text-slate-500">Ενημερώθηκε τώρα</p>
                   </div>
 
                   <div className="mt-4 space-y-4">
@@ -490,7 +494,7 @@ function HeroSection() {
 
                 <div className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm">
                   <p className="text-sm font-semibold text-slate-900">
-                    Critical Actions
+                    Κρίσιμες Ενέργειες
                   </p>
                   <div className="mt-4 space-y-3">
                     {[
@@ -512,7 +516,7 @@ function HeroSection() {
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-sm">
                   <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
-                    System layer
+                    Επίπεδο Συστήματος
                   </p>
                   <p className="mt-2 text-sm font-medium text-slate-700">
                     Συνδέει δεδομένα, ροές και actions σε ένα dashboard-level
@@ -522,7 +526,7 @@ function HeroSection() {
 
                 <div className="rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-sm">
                   <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
-                    Implementation
+                    Υλοποίηση
                   </p>
                   <p className="mt-2 text-sm font-medium text-slate-700">
                     Productized core με tailored setup ανά επιχείρηση.
