@@ -1,5 +1,6 @@
 import SiteNavbar from "../components/SiteNavbar";
 import SiteFooter from "../components/SiteFooter";
+import BackToTopButton from "../components/BackToTopButton";
 
 const valueBullets = [
   {
@@ -371,6 +372,7 @@ export default function LoukPeriCorePage() {
       </Section>
 
       <SiteFooter />
+	  <BackToTopButton /> 
     </main>
   );
 }

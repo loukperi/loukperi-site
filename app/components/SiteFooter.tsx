@@ -16,14 +16,11 @@ export default function SiteFooter() {
               <Image
                 src="/logo-footer-white.png"
                 alt="LoukPeri"
-                width={54}
-                height={54}
+				width={420}
+				height={120}
                 className="h-12 w-12 object-contain"
               />
               <div>
-                <p className="text-xl font-semibold tracking-tight text-white">
-                  LoukPeri
-                </p>
                 <p className="mt-1 text-sm text-slate-400">
                   Business Systems Builder
                 </p>
@@ -127,7 +124,7 @@ export default function SiteFooter() {
                   href="/loukperi-core#for-whom"
                   className="text-sm text-slate-300 transition hover:text-white"
                 >
-                  Για ποιους είναι
+                  Ποιους αφορά
                 </Link>
               </div>
             </div>
@@ -145,7 +142,7 @@ export default function SiteFooter() {
                   info@loukperi.gr
                 </a>
                 <p className="text-sm text-slate-300">Ελλάδα</p>
-                <p className="text-sm text-slate-400">Γρήγορα. Σωστά.</p>
+                //<p className="text-sm text-slate-400">Γρήγορα. Σωστά.</p>
               </div>
             </div>
           </div>
