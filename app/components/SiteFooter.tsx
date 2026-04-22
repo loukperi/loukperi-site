@@ -12,22 +12,25 @@ export default function SiteFooter() {
       <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-4">
+            <Link href="/" className="inline-flex flex-col items-start gap-5">
               <Image
                 src="/logo-footer-white.png"
                 alt="LoukPeri"
-				width={420}
-				height={120}
-                className="h-12 w-12 object-contain"
+                width={110}
+                height={110}
+                className="h-20 w-auto object-contain md:h-24"
               />
               <div>
+                <p className="text-2xl font-semibold tracking-tight text-white">
+                  LoukPeri
+                </p>
                 <p className="mt-1 text-sm text-slate-400">
                   Business Systems Builder
                 </p>
               </div>
             </Link>
 
-            <p className="mt-5 max-w-md text-sm leading-7 text-slate-300 md:text-base">
+            <p className="mt-6 max-w-md text-sm leading-7 text-slate-300 md:text-base">
               Software, dashboards και operational systems για επιχειρήσεις που
               θέλουν καλύτερη οργάνωση, καθαρότερη εικόνα και γρηγορότερη
               εκτέλεση.
@@ -124,7 +127,7 @@ export default function SiteFooter() {
                   href="/loukperi-core#for-whom"
                   className="text-sm text-slate-300 transition hover:text-white"
                 >
-                  Ποιους αφορά
+                  Για ποιους είναι
                 </Link>
               </div>
             </div>
@@ -142,7 +145,7 @@ export default function SiteFooter() {
                   info@loukperi.gr
                 </a>
                 <p className="text-sm text-slate-300">Ελλάδα</p>
-                //<p className="text-sm text-slate-400">Γρήγορα. Σωστά.</p>
+                <p className="text-sm text-slate-400">Γρήγορα. Σωστά.</p>
               </div>
             </div>
           </div>

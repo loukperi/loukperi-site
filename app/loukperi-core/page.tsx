@@ -361,10 +361,10 @@ export default function LoukPeriCorePage() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <PrimaryButton href="mailto:info@loukperi.com">
+            <PrimaryButton href="mailto:info@loukperi.gr">
               Κλείσε συνάντηση
             </PrimaryButton>
-            <SecondaryButton href="mailto:info@loukperi.com">
+            <SecondaryButton href="mailto:info@loukperi.gr">
               Μίλησέ μας για την επιχείρησή σου
             </SecondaryButton>
           </div>
@@ -372,7 +372,7 @@ export default function LoukPeriCorePage() {
       </Section>
 
       <SiteFooter />
-	  <BackToTopButton /> 
+      <BackToTopButton />
     </main>
   );
 }
