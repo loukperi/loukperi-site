@@ -1,46 +1,43 @@
-import type { ReactNode } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import BackToTopButton from "../components/BackToTopButton";
 import SiteNavbar from "../components/SiteNavbar";
 import SiteFooter from "../components/SiteFooter";
 
 const valueBullets = [
   {
+    number: "01",
     title: "Ενιαία εικόνα",
     description: "Όλα τα κρίσιμα δεδομένα και οι διαδικασίες σου σε ένα σημείο.",
-    index: "01",
   },
   {
+    number: "02",
     title: "Ταχύτερη εκτέλεση",
     description: "Λιγότερες καθυστερήσεις, λιγότερα λάθη, πιο ξεκάθαρες ενέργειες.",
-    index: "02",
   },
   {
+    number: "03",
     title: "Προσαρμοσμένο setup",
-    description: "Χτίζεται πάνω στις πραγματικές ανάγκες και τα υπάρχοντα συστήματά σου.",
-    index: "03",
+    description:
+      "Χτίζεται πάνω στις πραγματικές ανάγκες και τα υπάρχοντα συστήματά σου.",
   },
 ];
 
 const steps = [
   {
+    number: "01",
     title: "Συνδέεται με τα υπάρχοντα εργαλεία σου",
     description:
       "ERP, αρχεία, spreadsheets ή εσωτερικές διαδικασίες γίνονται μέρος ενός πιο οργανωμένου συστήματος.",
-    index: "01",
   },
   {
+    number: "02",
     title: "Οργανώνει δεδομένα και ροές",
     description:
       "Συγκεντρώνει κρίσιμη πληροφορία, καθαρίζει το operational χάος και δημιουργεί πιο ξεκάθαρη καθημερινή λειτουργία.",
-    index: "02",
   },
   {
+    number: "03",
     title: "Δίνει εικόνα και έλεγχο",
     description:
       "Dashboards, ρόλοι, automations και business logic δουλεύουν μαζί ώστε να βλέπεις τι συμβαίνει και να κινείσαι πιο σωστά.",
-    index: "03",
   },
 ];
 
@@ -78,7 +75,7 @@ const features = [
   "Εσωτερικά εργαλεία για καθημερινή λειτουργία",
 ];
 
-const customization = [
+const customizableItems = [
   "Modules",
   "Dashboards",
   "Ροές εργασίας",
@@ -107,534 +104,625 @@ const audiences = [
   },
 ];
 
-const sectionClass = "relative border-t border-white/10 py-24 sm:py-28";
-const containerClass = "mx-auto max-w-7xl px-6 lg:px-8";
-const cardClass =
-  "rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm transition-all duration-300 hover:border-white/15 hover:bg-white/[0.06]";
-const primaryButtonClass =
-  "inline-flex items-center justify-center rounded-2xl bg-[#3A8DFF] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]";
-const secondaryButtonClass =
-  "inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-white/[0.06]";
-
-function SectionHeader({
-  eyebrow,
-  title,
-  description,
-  align = "left",
-}: {
-  eyebrow?: string;
-  title: string;
-  description?: string;
-  align?: "left" | "center";
-}) {
-  const alignClass =
-    align === "center"
-      ? "mx-auto items-center text-center"
-      : "items-start text-left";
-
+export default function LoukPeriCorePage() {
   return (
-    <div className={`flex max-w-3xl flex-col ${alignClass}`}>
-      {eyebrow ? (
-        <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-200/90">
-          {eyebrow}
-        </span>
-      ) : null}
+    <main className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.14),_transparent_28%),linear-gradient(to_bottom,_#f8fbff,_#ffffff_26%,_#f8fafc_72%,_#ffffff)] text-slate-900">
+      <SiteNavbar currentPath="/loukperi-core" />
 
-      <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-        {title}
-      </h2>
+      <HeroSection />
 
-      {description ? (
-        <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
-          {description}
+      <Section className="pt-5 md:pt-8">
+        <div className="grid gap-4 md:grid-cols-3">
+          {valueBullets.map((item) => (
+            <InfoCard
+              key={item.title}
+              eyebrow={item.number}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
+      </Section>
+
+      <Section id="what-is">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
+          <div className="lg:col-span-7">
+            <SectionEyebrow>ΤΙ ΕΙΝΑΙ</SectionEyebrow>
+            <SectionTitle>Τι είναι το LoukPeri Core</SectionTitle>
+
+            <div className="mt-6 space-y-4 text-base leading-7 text-slate-600 md:text-lg md:leading-8">
+              <p>
+                Το LoukPeri Core είναι η βασική πλατφόρμα της LoukPeri για
+                επιχειρήσεις που θέλουν καλύτερη ορατότητα, πιο οργανωμένες
+                διαδικασίες και λιγότερο λειτουργικό χάος.
+              </p>
+              <p>
+                Δεν έρχεται απαραίτητα να αντικαταστήσει τα εργαλεία που ήδη
+                χρησιμοποιείς. Έρχεται να καθίσει πάνω από αυτά και να
+                δημιουργήσει ένα πιο καθαρό, πιο χρήσιμο και πιο λειτουργικό
+                επίπεδο ελέγχου για την καθημερινή λειτουργία της επιχείρησης.
+              </p>
+              <p>
+                Συγκεντρώνει δεδομένα, οργανώνει ροές και μετατρέπει διάσπαρτη
+                πληροφορία σε ξεκάθαρη εικόνα και πρακτική δράση.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/90 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.08)] backdrop-blur md:p-8">
+              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue-50 to-transparent" />
+              <div className="relative">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                  Core Layers
+                </p>
+
+                <div className="mt-6 space-y-4">
+                  {[
+                    { title: "Dashboards", sub: "Operational visibility" },
+                    { title: "Workflows", sub: "Structured execution" },
+                    { title: "Automations", sub: "Less manual friction" },
+                    {
+                      title: "Roles & Visibility",
+                      sub: "Clear access and ownership",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-[1.25rem] border border-slate-200/80 bg-slate-50/80 px-4 py-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-white"
+                    >
+                      <p className="text-sm font-semibold text-slate-800">
+                        {item.title}
+                      </p>
+                      <p className="mt-1 text-sm text-slate-500">{item.sub}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="how-it-works" className="bg-slate-50/80">
+        <SectionIntro
+          eyebrow="ΠΩΣ ΔΟΥΛΕΥΕΙ"
+          title="Πώς δουλεύει"
+          description="Συνδέεται με τα εργαλεία που ήδη υπάρχουν, οργανώνει δεδομένα και ροές, και δημιουργεί ένα καθαρό επίπεδο ελέγχου για την καθημερινή λειτουργία."
+          centered
+        />
+
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+          {steps.map((step) => (
+            <StepCard key={step.number} {...step} />
+          ))}
+        </div>
+      </Section>
+
+      <Section id="what-it-solves">
+        <SectionIntro
+          eyebrow="ΤΙ ΛΥΝΕΙ"
+          title="Τι λύνει στην πράξη"
+          description="Σχεδιάστηκε για επιχειρήσεις που έχουν δεδομένα, εργαλεία και διαδικασίες, αλλά όχι αρκετή καθαρότητα στην καθημερινή λειτουργία."
+          centered
+        />
+
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          {problems.map((problem) => (
+            <ProblemCard key={problem.title} {...problem} />
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionIntro
+          eyebrow="ΤΙ ΠΕΡΙΛΑΜΒΑΝΕΙ"
+          title="Τι μπορεί να περιλαμβάνει"
+          description="Το LoukPeri Core προσαρμόζεται ανάλογα με την επιχείρηση και μπορεί να περιλαμβάνει συνδυασμό από τα παρακάτω."
+          centered
+        />
+
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {features.map((feature) => (
+            <FeaturePill key={feature} label={feature} />
+          ))}
+        </div>
+      </Section>
+
+      <Section id="customization">
+        <SectionIntro
+          eyebrow="ΠΡΟΣΑΡΜΟΓΗ ΑΝΑ ΠΕΛΑΤΗ"
+          title="Σταθερός πυρήνας, προσαρμοσμένη υλοποίηση"
+          description="Το LoukPeri Core δεν είναι rigid λογισμικό. Υπάρχει ένας σταθερός πυρήνας πλατφόρμας και πάνω σε αυτόν προσαρμόζονται όσα χρειάζεται κάθε επιχείρηση για να λειτουργεί καλύτερα."
+          centered
+        />
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-[2rem] border border-slate-200/80 bg-white p-6 shadow-[0_12px_40px_rgba(15,23,42,0.06)] md:p-8">
+            <SectionEyebrow>ΣΤΑΘΕΡΟΣ ΠΥΡΗΝΑΣ</SectionEyebrow>
+            <SectionTitle className="mt-3">
+              Τι παραμένει σταθερό
+            </SectionTitle>
+
+            <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-600 md:text-base">
+              <li>• βασική αρχιτεκτονική</li>
+              <li>• core UI framework</li>
+              <li>• business logic βάση</li>
+              <li>• roles / permissions foundation</li>
+              <li>• modular δομή</li>
+            </ul>
+          </div>
+
+          <div className="rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-slate-50 p-6 shadow-[0_12px_40px_rgba(59,130,246,0.08)] md:p-8">
+            <SectionEyebrow>ΠΑΡΑΜΕΤΡΟΠΟΙΟΥΝΤΑΙ</SectionEyebrow>
+            <SectionTitle className="mt-3">
+              Τι αλλάζει ανά επιχείρηση
+            </SectionTitle>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {customizableItems.map((item) => (
+                <FeaturePill key={item} label={item} compact />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-6 text-sm leading-6 text-slate-600 md:text-base">
+          Έτσι, κάθε υλοποίηση παραμένει δομημένη, αλλά και πραγματικά χρήσιμη
+          για το περιβάλλον στο οποίο εφαρμόζεται.
         </p>
-      ) : null}
-    </div>
+      </Section>
+
+      <Section id="for-whom" className="bg-slate-50/80">
+        <SectionIntro
+          eyebrow="ΓΙΑ ΠΟΙΟΥΣ ΕΙΝΑΙ"
+          title="Για ποιους είναι"
+          description="Για επιχειρήσεις που δεν χρειάζονται άλλο ένα generic εργαλείο, αλλά καλύτερη οργάνωση, καθαρότερη εικόνα και πιο γρήγορη εκτέλεση."
+          centered
+        />
+
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+          {audiences.map((audience) => (
+            <InfoCard
+              key={audience.title}
+              title={audience.title}
+              description={audience.description}
+            />
+          ))}
+        </div>
+      </Section>
+
+      <Section className="relative overflow-hidden bg-slate-950 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_transparent_28%)]" />
+        <div className="relative mx-auto max-w-4xl text-center">
+          <SectionEyebrow className="text-blue-300">POSITIONING</SectionEyebrow>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
+            Δεν έρχεται να προσθέσει πολυπλοκότητα. Έρχεται να φέρει
+            καθαρότητα.
+          </h2>
+
+          <div className="mx-auto mt-6 max-w-3xl space-y-4 text-base leading-7 text-slate-300 md:text-lg md:leading-8">
+            <p>
+              Το LoukPeri Core δεν σχεδιάστηκε για να φορτώσει την επιχείρηση με
+              ένα ακόμα βαρύ σύστημα. Σχεδιάστηκε για να κάνει πιο χρήσιμα τα
+              δεδομένα που ήδη υπάρχουν, να οργανώσει καλύτερα τη ροή εργασίας
+              και να δημιουργήσει ένα πρακτικό επίπεδο ελέγχου πάνω στην
+              καθημερινή λειτουργία.
+            </p>
+            <p>
+              Σε κάποιες περιπτώσεις λειτουργεί πάνω από υπάρχοντα εργαλεία. Σε
+              άλλες, γίνεται η βάση για ένα πιο οργανωμένο εσωτερικό σύστημα. Σε
+              κάθε περίπτωση, ο στόχος είναι ο ίδιος: περισσότερη τάξη, καλύτερη
+              εικόνα, λιγότερη τριβή.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="pilot">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-slate-50 p-8 text-center shadow-[0_18px_50px_rgba(59,130,246,0.08)] md:p-12">
+          <SectionEyebrow>ΑΡΧΙΚΕΣ ΣΥΝΕΡΓΑΣΙΕΣ</SectionEyebrow>
+          <SectionTitle className="mt-4">
+            Ξεκινάμε με επιλεγμένες υλοποιήσεις
+          </SectionTitle>
+
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
+            Το LoukPeri Core διατίθεται αρχικά μέσω προσαρμοσμένης υλοποίησης για
+            επιχειρήσεις που θέλουν καλύτερη ορατότητα, οργανωμένες διαδικασίες
+            και πιο ξεκάθαρη λειτουργία.
+          </p>
+
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
+            Στην παρούσα φάση, αναλαμβάνουμε επιλεγμένες συνεργασίες ώστε κάθε
+            εφαρμογή να χτίζεται σωστά πάνω στις πραγματικές ανάγκες της
+            επιχείρησης.
+          </p>
+
+          <div className="mt-8">
+            <PrimaryButton href="#contact">
+              Κλείσε μια πρώτη συζήτηση
+            </PrimaryButton>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="contact" className="pb-16 md:pb-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <SectionEyebrow>ΕΠΟΜΕΝΟ ΒΗΜΑ</SectionEyebrow>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
+            Δες αν το LoukPeri Core ταιριάζει στη δική σου επιχείρηση.
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
+            Μια πρώτη συζήτηση αρκεί για να δούμε πού υπάρχουν καθυστερήσεις, πού
+            χάνεται η εικόνα και πώς μπορεί να στηθεί ένα πιο καθαρό σύστημα
+            λειτουργίας.
+          </p>
+
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <PrimaryButton href="mailto:info@loukperi.com">
+              Κλείσε συνάντηση
+            </PrimaryButton>
+            <SecondaryButton href="mailto:info@loukperi.com">
+              Μίλησέ μας για την επιχείρησή σου
+            </SecondaryButton>
+          </div>
+        </div>
+      </Section>
+
+      <SiteFooter />
+    </main>
   );
 }
 
-function GlassCard({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return <div className={`${cardClass} ${className}`}>{children}</div>;
-}
-
-export default function LoukPeriCorePage() {
+function HeroSection() {
   return (
-    <>
-      <BackToTopButton />
+    <section className="relative overflow-hidden pt-2">
+      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-100/70 blur-3xl" />
+      <div className="absolute right-[-4rem] top-24 h-80 w-80 rounded-full bg-sky-100/80 blur-3xl" />
 
-      <div className="fixed bottom-4 right-4 z-50 sm:bottom-5 sm:right-5">
-        <a
-          href="#contact"
-          className="inline-flex items-center rounded-full border border-white/10 bg-[#3A8DFF] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(58,141,255,0.35)] transition duration-300 hover:scale-[1.03] hover:bg-[#5a9eff]"
-        >
-          Κλείσε συνάντηση
-        </a>
-      </div>
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:py-24 lg:grid-cols-12 lg:items-center lg:px-10 lg:py-28">
+        <div className="lg:col-span-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700 shadow-sm backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-blue-600" />
+            LoukPeri Core
+          </div>
 
-      <main className="min-h-screen overflow-hidden bg-[#0B1F3A] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.22),transparent_28%),radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_22%)]" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[860px] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent)]" />
+          <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl lg:text-6xl lg:leading-[1.02]">
+            Το κεντρικό σύστημα που βάζει τάξη στην επιχείρησή σου.
+          </h1>
 
-        <SiteNavbar currentPath="/loukperi-core" />
+          <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 md:text-lg md:leading-8">
+            Το LoukPeri Core ενώνει δεδομένα, διαδικασίες και dashboards σε ένα
+            business layer που σου δείχνει καθαρά τι συμβαίνει, πού υπάρχουν
+            καθυστερήσεις και πού πρέπει να δράσεις — ώστε να δουλεύεις
+            γρηγορότερα, με λιγότερα λάθη και καλύτερες αποφάσεις.
+          </p>
 
-        <section className="relative overflow-hidden">
-          <div
-            className={`${containerClass} pb-24 pt-24 sm:pb-28 sm:pt-28 lg:pb-32 lg:pt-36`}
-          >
-            <div className="grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-blue-200">
-                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[#3A8DFF]" />
-                  LoukPeri Core
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <PrimaryButton href="#contact">Κλείσε συνάντηση</PrimaryButton>
+            <SecondaryButton href="#how-it-works">
+              Δες πώς δουλεύει
+            </SecondaryButton>
+          </div>
+
+          <p className="mt-6 max-w-2xl text-sm leading-6 text-slate-500 md:text-base">
+            Κουμπώνει πάνω στα εργαλεία που ήδη χρησιμοποιείς και προσαρμόζεται
+            στις ανάγκες της επιχείρησής σου.
+          </p>
+        </div>
+
+        <div className="relative lg:col-span-6">
+          <div className="absolute inset-0 -z-10 scale-[1.04] rounded-[2.5rem] bg-gradient-to-br from-blue-100/70 via-transparent to-slate-100 blur-3xl" />
+          <div className="rounded-[2.25rem] border border-white/70 bg-white/85 p-4 shadow-[0_30px_90px_rgba(15,23,42,0.12)] backdrop-blur md:p-6">
+            <div className="rounded-[1.75rem] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-4 md:p-5">
+              <div className="flex items-center justify-between border-b border-slate-200/80 pb-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    LoukPeri Core
+                  </p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">
+                    Operations Overview
+                  </p>
                 </div>
-
-                <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
-                  Το κεντρικό σύστημα που βάζει τάξη στην επιχείρησή σου.
-                </h1>
-
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-                  Το LoukPeri Core ενώνει δεδομένα, διαδικασίες και dashboards σε
-                  ένα business layer που σου δείχνει καθαρά τι συμβαίνει, πού
-                  υπάρχουν καθυστερήσεις και πού πρέπει να δράσεις.
-                </p>
-
-                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400">
-                  Κουμπώνει πάνω στα εργαλεία που ήδη χρησιμοποιείς και
-                  προσαρμόζεται στις ανάγκες της επιχείρησής σου, ώστε να
-                  δουλεύεις γρηγορότερα, με λιγότερα λάθη και καλύτερες
-                  αποφάσεις.
-                </p>
-
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <a href="#contact" className={primaryButtonClass}>
-                    Κλείσε συνάντηση
-                  </a>
-                  <a href="#what-is" className={secondaryButtonClass}>
-                    Δες πώς δουλεύει
-                  </a>
-                </div>
-
-                
+                <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                  Live
+                </span>
               </div>
 
-              <div className="relative flex items-center justify-center">
-                <div className="absolute -inset-8 rounded-[48px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.18),transparent_45%)] blur-2xl" />
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {[
+                  { label: "Orders", value: "128", hint: "+12 σήμερα" },
+                  { label: "Pending", value: "14", hint: "Need review" },
+                  { label: "Issues", value: "3", hint: "Priority" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm"
+                  >
+                    <p className="text-xs font-medium text-slate-500">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">
+                      {item.value}
+                    </p>
+                    <p className="mt-2 text-xs text-slate-500">{item.hint}</p>
+                  </div>
+                ))}
+              </div>
 
-                <div className="relative z-10 w-full max-w-[580px] rounded-[30px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-sm">
-                  <div className="mb-6 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
-                        <Image
-                          src="/logo-icon-flat.png"
-                          alt="LoukPeri Core"
-                          width={24}
-                          height={24}
-                          className="h-6 w-6 object-contain"
-                        />
-                      </div>
-
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
-                          LoukPeri Core
-                        </p>
-                        <h3 className="mt-1 text-2xl font-semibold text-white">
-                          Operations Overview
-                        </h3>
-                      </div>
-                    </div>
-
-                    <span className="rounded-full border border-[#3A8DFF]/20 bg-[#3A8DFF]/10 px-3 py-1 text-xs font-medium text-blue-200">
-                      Selected Implementations
-                    </span>
+              <div className="mt-4 grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
+                <div className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-slate-900">
+                      Workflow Status
+                    </p>
+                    <p className="text-xs text-slate-500">Updated τώρα</p>
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-3">
+                  <div className="mt-4 space-y-4">
                     {[
-                      ["Orders", "128", "Σημερινή εικόνα"],
-                      ["Pending", "14", "Need review"],
-                      ["Issues", "3", "Priority"],
-                    ].map(([label, value, note]) => (
-                      <div
-                        key={label}
-                        className="rounded-2xl border border-white/6 bg-white/[0.04] p-4"
-                      >
-                        <div className="text-sm text-slate-400">{label}</div>
-                        <div className="mt-2 text-2xl font-semibold text-white">
-                          {value}
+                      {
+                        name: "Νέες παραγγελίες",
+                        progress: "91%",
+                        width: "91%",
+                      },
+                      { name: "Εκτέλεση", progress: "67%", width: "67%" },
+                      { name: "Τιμολόγηση", progress: "78%", width: "78%" },
+                    ].map((row) => (
+                      <div key={row.name}>
+                        <div className="mb-2 flex items-center justify-between text-xs text-slate-500">
+                          <span>{row.name}</span>
+                          <span>{row.progress}</span>
                         </div>
-                        <div className="mt-1 text-sm text-slate-500">
-                          {note}
+                        <div className="h-2 rounded-full bg-slate-100">
+                          <div
+                            className="h-2 rounded-full bg-gradient-to-r from-slate-900 to-blue-700"
+                            style={{ width: row.width }}
+                          />
                         </div>
                       </div>
                     ))}
                   </div>
+                </div>
 
-                  <div className="mt-5 grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
-                    <div className="rounded-2xl border border-white/6 bg-white/[0.03] p-4">
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="text-sm text-slate-400">
-                          Workflow Status
-                        </span>
-                        <span className="text-sm font-medium text-blue-200">
-                          Updated τώρα
-                        </span>
+                <div className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm">
+                  <p className="text-sm font-semibold text-slate-900">
+                    Critical Actions
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {[
+                      "3 παραγγελίες χρειάζονται έγκριση",
+                      "1 integration check εκκρεμεί",
+                      "Το KPI fulfillment έπεσε 6%",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm text-slate-700"
+                      >
+                        {item}
                       </div>
-
-                      <div className="mt-4 space-y-4">
-                        {[
-                          ["Νέες παραγγελίες", "91%"],
-                          ["Εκτέλεση", "67%"],
-                          ["Τιμολόγηση", "78%"],
-                        ].map(([label, width]) => (
-                          <div key={label}>
-                            <div className="mb-2 flex items-center justify-between text-xs text-slate-400">
-                              <span>{label}</span>
-                              <span>{width}</span>
-                            </div>
-                            <div className="h-2 overflow-hidden rounded-full bg-white/5">
-                              <div
-                                className="h-full rounded-full bg-[#3A8DFF]"
-                                style={{ width }}
-                              />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-white/6 bg-white/[0.03] p-4">
-                      <span className="text-sm text-slate-400">Critical Actions</span>
-
-                      <div className="mt-4 space-y-3">
-                        {[
-                          "3 παραγγελίες χρειάζονται έγκριση",
-                          "1 integration check εκκρεμεί",
-                          "Το KPI fulfillment έπεσε 6%",
-                        ].map((item) => (
-                          <div
-                            key={item}
-                            className="rounded-2xl border border-white/6 bg-white/[0.04] p-3 text-sm text-slate-300"
-                          >
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="relative pb-8">
-          <div className={containerClass}>
-            <div className="grid gap-6 md:grid-cols-3">
-              {valueBullets.map((item) => (
-                <GlassCard key={item.title} className="h-full">
-                  <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-blue-200">
-                    {item.index}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
-                    {item.description}
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-sm">
+                  <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+                    System layer
                   </p>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="what-is" className={sectionClass}>
-          <div className={containerClass}>
-            <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-              <div>
-                <SectionHeader
-                  eyebrow="LoukPeri Core"
-                  title="Τι είναι το LoukPeri Core"
-                  description="Το LoukPeri Core είναι η βασική πλατφόρμα της LoukPeri για επιχειρήσεις που θέλουν καλύτερη ορατότητα, πιο οργανωμένες διαδικασίες και λιγότερο λειτουργικό χάος."
-                />
-
-                <div className="mt-6 space-y-5 text-base leading-8 text-slate-300">
-                  <p>
-                    Δεν έρχεται απαραίτητα να αντικαταστήσει τα εργαλεία που
-                    ήδη χρησιμοποιείς. Έρχεται να καθίσει πάνω από αυτά και να
-                    δημιουργήσει ένα πιο καθαρό, πιο χρήσιμο και πιο λειτουργικό
-                    επίπεδο ελέγχου για την καθημερινή λειτουργία της
-                    επιχείρησης.
+                  <p className="mt-2 text-sm font-medium text-slate-700">
+                    Συνδέει δεδομένα, ροές και actions σε ένα dashboard-level
+                    control layer.
                   </p>
-                  <p>
-                    Συγκεντρώνει δεδομένα, οργανώνει ροές και μετατρέπει
-                    διάσπαρτη πληροφορία σε ξεκάθαρη εικόνα και πρακτική δράση.
+                </div>
+
+                <div className="rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-sm">
+                  <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+                    Implementation
+                  </p>
+                  <p className="mt-2 text-sm font-medium text-slate-700">
+                    Productized core με tailored setup ανά επιχείρηση.
                   </p>
                 </div>
               </div>
-
-              <GlassCard>
-                <div className="mb-5 inline-flex rounded-2xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-blue-200">
-                  Core Layers
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    ["Dashboards", "Operational visibility"],
-                    ["Workflows", "Structured execution"],
-                    ["Automations", "Less manual friction"],
-                    ["Roles & Visibility", "Clear access and ownership"],
-                  ].map(([title, note]) => (
-                    <div
-                      key={title}
-                      className="rounded-2xl border border-white/6 bg-white/[0.04] p-4"
-                    >
-                      <div className="text-base font-semibold text-white">{title}</div>
-                      <div className="mt-1 text-sm text-slate-400">{note}</div>
-                    </div>
-                  ))}
-                </div>
-              </GlassCard>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-        <section id="how-it-works" className={sectionClass}>
-          <div className={containerClass}>
-            <SectionHeader
-              eyebrow="Workflow"
-              title="Πώς δουλεύει"
-              description="Συνδέεται με τα εργαλεία που ήδη υπάρχουν, οργανώνει δεδομένα και ροές, και δημιουργεί ένα καθαρό επίπεδο ελέγχου για την καθημερινή λειτουργία."
-              align="center"
-            />
+function Section({
+  children,
+  id,
+  className = "",
+}: {
+  children: React.ReactNode;
+  id?: string;
+  className?: string;
+}) {
+  return (
+    <section id={id} className={`py-16 md:py-24 ${className}`}>
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">{children}</div>
+    </section>
+  );
+}
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {steps.map((step) => (
-                <GlassCard key={step.title} className="h-full">
-                  <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-blue-200">
-                    {step.index}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
-                    {step.description}
-                  </p>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </section>
+function SectionIntro({
+  eyebrow,
+  title,
+  description,
+  centered = false,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  centered?: boolean;
+}) {
+  return (
+    <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+      <SectionEyebrow>{eyebrow}</SectionEyebrow>
+      <SectionTitle className="mt-4">{title}</SectionTitle>
+      <p className="mt-5 text-base leading-7 text-slate-600 md:text-lg md:leading-8">
+        {description}
+      </p>
+    </div>
+  );
+}
 
-        <section className={sectionClass}>
-          <div className={containerClass}>
-            <SectionHeader
-              eyebrow="Operational Problems"
-              title="Τι λύνει στην πράξη"
-              description="Σχεδιάστηκε για επιχειρήσεις που έχουν δεδομένα, εργαλεία και διαδικασίες, αλλά όχι αρκετή καθαρότητα στην καθημερινή λειτουργία."
-              align="center"
-            />
+function SectionEyebrow({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <p
+      className={`text-sm font-semibold uppercase tracking-[0.18em] text-blue-700 ${className}`}
+    >
+      {children}
+    </p>
+  );
+}
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {problems.map((item) => (
-                <GlassCard key={item.title} className="h-full">
-                  <div className="mb-4 h-1.5 w-16 rounded-full bg-[#3A8DFF]" />
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
-                    {item.description}
-                  </p>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </section>
+function SectionTitle({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <h2
+      className={`text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl ${className}`}
+    >
+      {children}
+    </h2>
+  );
+}
 
-        <section className={sectionClass}>
-          <div className={containerClass}>
-            <SectionHeader
-              eyebrow="Capabilities"
-              title="Τι μπορεί να περιλαμβάνει"
-              description="Το LoukPeri Core προσαρμόζεται ανάλογα με την επιχείρηση και μπορεί να περιλαμβάνει συνδυασμό από τα παρακάτω."
-              align="center"
-            />
+function InfoCard({
+  title,
+  description,
+  eyebrow,
+}: {
+  title: string;
+  description: string;
+  eyebrow?: string;
+}) {
+  return (
+    <div className="group rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-6 shadow-[0_12px_36px_rgba(15,23,42,0.05)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_46px_rgba(15,23,42,0.08)] md:p-7">
+      {eyebrow ? (
+        <div className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-blue-700">
+          {eyebrow}
+        </div>
+      ) : null}
+      <h3 className="mt-4 text-xl font-semibold tracking-tight text-slate-900">
+        {title}
+      </h3>
+      <p className="mt-3 text-sm leading-6 text-slate-600 md:text-base">
+        {description}
+      </p>
+    </div>
+  );
+}
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              {features.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-5 text-sm font-medium text-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.14)] backdrop-blur-sm transition hover:bg-white/[0.06]"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+function StepCard({
+  number,
+  title,
+  description,
+}: {
+  number: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="group rounded-[1.75rem] border border-slate-200/80 bg-white p-6 shadow-[0_12px_36px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_46px_rgba(15,23,42,0.08)] md:p-8">
+      <div className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
+        {number}
+      </div>
+      <h3 className="mt-4 text-xl font-semibold tracking-tight text-slate-900">
+        {title}
+      </h3>
+      <p className="mt-4 text-sm leading-6 text-slate-600 md:text-base">
+        {description}
+      </p>
+    </div>
+  );
+}
 
-        <section className={sectionClass}>
-          <div className={containerClass}>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <GlassCard className="h-full">
-                <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-blue-200">
-                  Stable foundation
-                </div>
-                <h3 className="text-2xl font-semibold text-white">
-                  Σταθερός πυρήνας πλατφόρμας
-                </h3>
-                <ul className="mt-6 space-y-3 text-sm leading-7 text-slate-300">
-                  <li>• βασική αρχιτεκτονική</li>
-                  <li>• core UI framework</li>
-                  <li>• business logic βάση</li>
-                  <li>• roles / permissions foundation</li>
-                  <li>• modular δομή</li>
-                </ul>
-              </GlassCard>
+function ProblemCard({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-[1.75rem] border border-slate-200/80 bg-white p-6 shadow-[0_12px_36px_rgba(15,23,42,0.05)] md:p-8">
+      <div className="mb-4 h-1 w-16 rounded-full bg-gradient-to-r from-blue-600 to-slate-900" />
+      <h3 className="text-xl font-semibold tracking-tight text-slate-900">
+        {title}
+      </h3>
+      <p className="mt-4 text-sm leading-6 text-slate-600 md:text-base">
+        {description}
+      </p>
+    </div>
+  );
+}
 
-              <GlassCard className="h-full">
-                <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-blue-200">
-                  Customizable
-                </div>
-                <h3 className="text-2xl font-semibold text-white">
-                  Τι προσαρμόζεται ανά πελάτη
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-slate-400">
-                  Το LoukPeri Core δεν είναι rigid λογισμικό. Υπάρχει ένας
-                  σταθερός πυρήνας πλατφόρμας και πάνω σε αυτόν προσαρμόζονται
-                  όσα χρειάζεται κάθε επιχείρηση για να λειτουργεί καλύτερα.
-                </p>
+function FeaturePill({
+  label,
+  compact = false,
+}: {
+  label: string;
+  compact?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-blue-100 hover:shadow-md ${
+        compact ? "px-4 py-3 text-sm" : "px-5 py-5 text-sm md:text-base"
+      } font-medium text-slate-700`}
+    >
+      {label}
+    </div>
+  );
+}
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {customization.map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3 text-sm text-slate-300"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </GlassCard>
-            </div>
+function PrimaryButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(15,23,42,0.16)] transition hover:-translate-y-0.5 hover:bg-slate-900"
+    >
+      {children}
+    </a>
+  );
+}
 
-            <p className="mt-6 text-sm leading-7 text-slate-400">
-              Έτσι, κάθε υλοποίηση παραμένει δομημένη, αλλά και πραγματικά
-              χρήσιμη για το περιβάλλον στο οποίο εφαρμόζεται.
-            </p>
-          </div>
-        </section>
-
-        <section id="for-whom" className={sectionClass}>
-          <div className={containerClass}>
-            <SectionHeader
-              eyebrow="ΠΟΙΟΥΣ ΑΦΟΡΑ"
-              title="Ποιούς αφορά"
-              description="Για επιχειρήσεις που δεν χρειάζονται άλλο ένα generic εργαλείο, αλλά καλύτερη οργάνωση, καθαρότερη εικόνα και πιο γρήγορη εκτέλεση."
-              align="center"
-            />
-
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {audiences.map((item) => (
-                <GlassCard key={item.title} className="h-full">
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
-                    {item.description}
-                  </p>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={sectionClass}>
-          <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
-            <div className="rounded-[32px] border border-white/10 bg-white/[0.045] px-6 py-10 shadow-[0_20px_60px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:px-10 sm:py-12">
-              <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-200">
-                Positioning
-              </span>
-
-              <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Δεν έρχεται να προσθέσει πολυπλοκότητα. Έρχεται να φέρει
-                καθαρότητα.
-              </h2>
-
-              <div className="mx-auto mt-5 max-w-3xl space-y-4 text-base leading-8 text-slate-300">
-                <p>
-                  Το LoukPeri Core δεν σχεδιάστηκε για να φορτώσει την
-                  επιχείρηση με ένα ακόμα βαρύ σύστημα. Σχεδιάστηκε για να κάνει
-                  πιο χρήσιμα τα δεδομένα που ήδη υπάρχουν, να οργανώσει
-                  καλύτερα τη ροή εργασίας και να δημιουργήσει ένα πρακτικό
-                  επίπεδο ελέγχου πάνω στην καθημερινή λειτουργία.
-                </p>
-                <p>
-                  Σε κάποιες περιπτώσεις λειτουργεί πάνω από υπάρχοντα εργαλεία.
-                  Σε άλλες, γίνεται η βάση για ένα πιο οργανωμένο εσωτερικό
-                  σύστημα. Σε κάθε περίπτωση, ο στόχος είναι ο ίδιος:
-                  περισσότερη τάξη, καλύτερη εικόνα, λιγότερη τριβή.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className={sectionClass}>
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <div className="rounded-[32px] border border-white/10 bg-white/[0.045] px-6 py-10 text-center shadow-[0_20px_60px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:px-10 sm:py-12">
-              <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-200">
-                Selected Implementations
-              </span>
-
-              <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Ξεκινάμε με επιλεγμένες υλοποιήσεις
-              </h2>
-
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                Το LoukPeri Core διατίθεται αρχικά μέσω προσαρμοσμένης
-                υλοποίησης για επιχειρήσεις που θέλουν καλύτερη ορατότητα,
-                οργανωμένες διαδικασίες και πιο ξεκάθαρη λειτουργία.
-              </p>
-
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
-                Στην παρούσα φάση, αναλαμβάνουμε επιλεγμένες συνεργασίες ώστε
-                κάθε εφαρμογή να χτίζεται σωστά πάνω στις πραγματικές ανάγκες της
-                επιχείρησης.
-              </p>
-
-              <div className="mt-8">
-                <a href="#contact" className={primaryButtonClass}>
-                  Κλείσε μια πρώτη συζήτηση
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className={sectionClass}>
-          <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
-            <SectionHeader
-              eyebrow="Contact"
-              title="Δες αν το LoukPeri Core ταιριάζει στη δική σου επιχείρηση."
-              description="Μια πρώτη συζήτηση αρκεί για να δούμε πού υπάρχουν καθυστερήσεις, πού χάνεται η εικόνα και πώς μπορεί να στηθεί ένα πιο καθαρό σύστημα λειτουργίας."
-              align="center"
-            />
-
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="mailto:info@loukperi.gr?subject=%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BD%20%CE%B3%CE%B9%CE%B1%20LoukPeri%20Core"
-                className={primaryButtonClass}
-              >
-                Κλείσε συνάντηση
-              </a>
-
-              <Link href="/" className={secondaryButtonClass}>
-                Επιστροφή στην εταιρική σελίδα
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <SiteFooter />
-      </main>
-    </>
+function SecondaryButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/90 px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900"
+    >
+      {children}
+    </a>
   );
 }

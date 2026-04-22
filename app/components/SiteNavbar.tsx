@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,8 +10,22 @@ export default function SiteNavbar({
   currentPath?: string;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const isCorePage = currentPath === "/loukperi-core";
+
+  const coreSections = useMemo(
+    () => [
+      "what-is",
+      "how-it-works",
+      "what-it-solves",
+      "customization",
+      "for-whom",
+      "pilot",
+      "contact",
+    ],
+    []
+  );
 
   const navItems = isCorePage
     ? [
@@ -19,6 +33,9 @@ export default function SiteNavbar({
         { label: "LoukPeri Core", href: "/loukperi-core" },
         { label: "Τι είναι", href: "/loukperi-core#what-is" },
         { label: "Πώς δουλεύει", href: "/loukperi-core#how-it-works" },
+        { label: "Τι λύνει", href: "/loukperi-core#what-it-solves" },
+        { label: "Προσαρμογή", href: "/loukperi-core#customization" },
+        { label: "Για ποιους είναι", href: "/loukperi-core#for-whom" },
         { label: "Επικοινωνία", href: "/#contact" },
       ]
     : [
@@ -27,12 +44,6 @@ export default function SiteNavbar({
         { label: "Πώς δουλεύουμε", href: "/#process" },
         { label: "Επικοινωνία", href: "/#contact" },
       ];
-
-  const isActive = (href: string) => {
-    if (href === "/") return currentPath === "/";
-    if (href === "/loukperi-core") return currentPath === "/loukperi-core";
-    return false;
-  };
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -52,13 +63,78 @@ export default function SiteNavbar({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  useEffect(() => {
+    if (!isCorePage) {
+      setActiveSection("");
+      return;
+    }
+
+    const sections = coreSections
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-25% 0px -55% 0px",
+        threshold: [0.15, 0.3, 0.5, 0.7],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    const syncFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && coreSections.includes(hash)) {
+        setActiveSection(hash);
+      }
+    };
+
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, [isCorePage, coreSections]);
+
   const closeMobileMenu = () => setMobileOpen(false);
+
+  const isActive = (href: string) => {
+    if (href === "/") return currentPath === "/";
+    if (href === "/loukperi-core") {
+      return currentPath === "/loukperi-core" && !activeSection;
+    }
+
+    if (isCorePage && href.startsWith("/loukperi-core#")) {
+      const hash = href.split("#")[1];
+      return activeSection === hash;
+    }
+
+    return false;
+  };
 
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1F3A]/80 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-3.5" onClick={closeMobileMenu}>
+          <Link
+            href="/"
+            className="flex items-center gap-3.5"
+            onClick={closeMobileMenu}
+          >
             <Image
               src="/logo-icon-flat.png"
               alt="LoukPeri"
@@ -150,7 +226,9 @@ export default function SiteNavbar({
                   <p className="text-sm font-semibold tracking-[0.18em] text-slate-400">
                     MENU
                   </p>
-                  <p className="text-base font-semibold text-white">LoukPeri</p>
+                  <p className="text-base font-semibold text-white">
+                    LoukPeri
+                  </p>
                 </div>
               </div>
 
