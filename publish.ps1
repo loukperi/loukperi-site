@@ -1,3 +1,7 @@
+param(
+    [string]$Message = "whatever"
+)
+
 git add .
-git commit -m "Update landing page ver3"
+git commit -m $Message
 git push
