@@ -6,66 +6,30 @@ export default function SiteFooter() {
 
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#08172c] text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(58,141,255,0.16),_transparent_28%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(58,141,255,0.14),_transparent_26%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
-            <Link href="/" className="inline-flex flex-col items-start gap-5">
-              <Image
-                src="/logo-footer-white.png"
-                alt="LoukPeri"
-                width={110}
-                height={110}
-                className="h-20 w-auto object-contain md:h-24"
-              />
-              <div>
-                <p className="text-2xl font-semibold tracking-tight text-white">
-                  LoukPeri
-                </p>
-                <p className="mt-1 text-sm text-slate-400">
-                  Business Systems Builder
-                </p>
-              </div>
-            </Link>
+          <div className="lg:col-span-4">
+		    <div className="w-fit">
+		  	<Link href="/" className="inline-flex flex-col items-center text-center">
+		  	  <Image
+		  		src="/logo-footer-white.png"
+		  		alt="LoukPeri"
+		  		width={210}
+		  		height={90}
+		  		className="block h-auto w-[180px] object-contain md:w-[210px]"
+		  		priority
+		  	  />
+		  	  <p className="-mt-3 text-sm font-medium leading-tight text-slate-300 md:text-[15px]">
+		  		Business Systems Builder
+		  	  </p>
+		  	</Link>
+		    </div>
+		  </div>
 
-            <p className="mt-6 max-w-md text-sm leading-7 text-slate-300 md:text-base">
-              Software, dashboards και operational systems για επιχειρήσεις που
-              θέλουν καλύτερη οργάνωση, καθαρότερη εικόνα και γρηγορότερη
-              εκτέλεση.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center rounded-2xl bg-[#3A8DFF] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]"
-              >
-                Κλείσε συνάντηση
-              </Link>
-
-              <Link
-                href="/loukperi-core"
-                className="inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-white/10"
-              >
-                Δες το LoukPeri Core
-              </Link>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-300">
-                Dashboards
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-300">
-                Automations
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-300">
-                Business Systems
-              </span>
-            </div>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
                 Εταιρεία
@@ -145,8 +109,7 @@ export default function SiteFooter() {
                   info@loukperi.gr
                 </a>
                 <p className="text-sm text-slate-300">Ελλάδα</p>
-                <p className="text-sm text-slate-400">Γρήγορα. Σωστά.</p>
-              </div>
+                </div>
             </div>
           </div>
         </div>

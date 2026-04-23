@@ -125,7 +125,7 @@ export default function LoukPeriCorePage() {
         </div>
       </Section>
 
-      <Section id="what-is">
+      <Section id="what-is" className="scroll-mt-28 md:scroll-mt-32">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
           <div className="lg:col-span-7">
             <SectionEyebrow>ΤΙ ΕΙΝΑΙ</SectionEyebrow>
@@ -185,7 +185,7 @@ export default function LoukPeriCorePage() {
         </div>
       </Section>
 
-      <Section id="how-it-works" className="bg-slate-50/80">
+      <Section id="how-it-works" className="bg-slate-50/80 scroll-mt-28 md:scroll-mt-32">
         <SectionIntro
           eyebrow="ΠΩΣ ΔΟΥΛΕΥΕΙ"
           title="Πώς δουλεύει"
@@ -200,7 +200,7 @@ export default function LoukPeriCorePage() {
         </div>
       </Section>
 
-      <Section id="what-it-solves">
+      <Section id="what-it-solves" className="scroll-mt-28 md:scroll-mt-32">
         <SectionIntro
           eyebrow="ΤΙ ΛΥΝΕΙ"
           title="Τι λύνει στην πράξη"
@@ -230,7 +230,7 @@ export default function LoukPeriCorePage() {
         </div>
       </Section>
 
-      <Section id="customization">
+      <Section id="customization" className="scroll-mt-28 md:scroll-mt-32">
         <SectionIntro
           eyebrow="ΠΡΟΣΑΡΜΟΓΗ ΑΝΑ ΠΕΛΑΤΗ"
           title="Σταθερός πυρήνας, προσαρμοσμένη υλοποίηση"
@@ -274,7 +274,7 @@ export default function LoukPeriCorePage() {
         </p>
       </Section>
 
-      <Section id="for-whom" className="bg-slate-50/80">
+      <Section id="for-whom" className="bg-slate-50/80 scroll-mt-28 md:scroll-mt-32">
         <SectionIntro
           eyebrow="ΓΙΑ ΠΟΙΟΥΣ ΕΙΝΑΙ"
           title="Για ποιους είναι"
@@ -320,7 +320,7 @@ export default function LoukPeriCorePage() {
         </div>
       </Section>
 
-      <Section id="pilot">
+      <Section id="pilot" className="scroll-mt-28 md:scroll-mt-32">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-slate-50 p-8 text-center shadow-[0_18px_50px_rgba(59,130,246,0.08)] md:p-12">
           <SectionEyebrow>ΑΡΧΙΚΕΣ ΣΥΝΕΡΓΑΣΙΕΣ</SectionEyebrow>
           <SectionTitle className="mt-4">
@@ -347,7 +347,7 @@ export default function LoukPeriCorePage() {
         </div>
       </Section>
 
-      <Section id="contact" className="pb-16 md:pb-24">
+      <Section id="contact" className="pb-16 md:pb-24 scroll-mt-28 md:scroll-mt-32">
         <div className="mx-auto max-w-4xl text-center">
           <SectionEyebrow>ΕΠΟΜΕΝΟ ΒΗΜΑ</SectionEyebrow>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">

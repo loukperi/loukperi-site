@@ -36,7 +36,7 @@ export default function SiteNavbar({
         { label: "Τι λύνει", href: "/loukperi-core#what-it-solves" },
         { label: "Προσαρμογή", href: "/loukperi-core#customization" },
         { label: "Για ποιους είναι", href: "/loukperi-core#for-whom" },
-        { label: "Επικοινωνία", href: "/#contact" },
+        { label: "Επικοινωνία", href: "/loukperi-core#contact" },
       ]
     : [
         { label: "Υπηρεσίες", href: "/#services" },
@@ -69,48 +69,67 @@ export default function SiteNavbar({
       return;
     }
 
-    const sections = coreSections
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    const updateActiveSection = () => {
+      const headerOffset = 110;
+      const scrollPosition = window.scrollY + headerOffset;
 
-    if (!sections.length) return;
+      let current = "";
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      for (const id of coreSections) {
+        const element = document.getElementById(id);
+        if (!element) continue;
 
-        if (visible.length > 0) {
-          setActiveSection(visible[0].target.id);
+        const top = element.offsetTop;
+        if (scrollPosition >= top) {
+          current = id;
         }
-      },
-      {
-        root: null,
-        rootMargin: "-25% 0px -55% 0px",
-        threshold: [0.15, 0.3, 0.5, 0.7],
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
-
-    const syncFromHash = () => {
-      const hash = window.location.hash.replace("#", "");
-      if (hash && coreSections.includes(hash)) {
-        setActiveSection(hash);
-      }
+      setActiveSection(current);
     };
 
-    syncFromHash();
-    window.addEventListener("hashchange", syncFromHash);
+    updateActiveSection();
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", updateActiveSection);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("hashchange", syncFromHash);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
     };
   }, [isCorePage, coreSections]);
 
   const closeMobileMenu = () => setMobileOpen(false);
+
+  const handleAnchorClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (!isCorePage) return;
+    if (!href.startsWith("/loukperi-core#")) return;
+
+    const hash = href.split("#")[1];
+    const target = document.getElementById(hash);
+
+    if (!target) return;
+
+    event.preventDefault();
+
+    const headerOffset = 96;
+    const targetTop =
+      target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.history.replaceState(null, "", href);
+    window.scrollTo({
+      top: targetTop,
+      behavior: "smooth",
+    });
+
+    setActiveSection(hash);
+    closeMobileMenu();
+  };
 
   const isActive = (href: string) => {
     if (href === "/") return currentPath === "/";
@@ -153,6 +172,7 @@ export default function SiteNavbar({
               <Link
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleAnchorClick(e, item.href)}
                 className={[
                   "relative rounded-full px-4 py-2 text-sm font-medium transition duration-300",
                   isActive(item.href)
@@ -226,7 +246,9 @@ export default function SiteNavbar({
                   <p className="text-sm font-semibold tracking-[0.18em] text-slate-400">
                     MENU
                   </p>
-                  <p className="text-base font-semibold text-white">LoukPeri</p>
+                  <p className="text-base font-semibold text-white">
+                    LoukPeri
+                  </p>
                 </div>
               </div>
 
@@ -246,7 +268,12 @@ export default function SiteNavbar({
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={closeMobileMenu}
+                    onClick={(e) => {
+                      handleAnchorClick(e, item.href);
+                      if (!item.href.startsWith("/loukperi-core#")) {
+                        closeMobileMenu();
+                      }
+                    }}
                     className={[
                       "rounded-2xl px-4 py-3.5 text-sm font-medium transition duration-300",
                       isActive(item.href)
