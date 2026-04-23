@@ -103,14 +103,14 @@ const processSteps = [
   },
 ];
 
-const sectionClass = "relative border-t border-white/10 py-24 sm:py-28";
+const sectionClass = "relative py-16 md:py-24";
 const containerClass = "mx-auto max-w-7xl px-6 lg:px-8";
 const cardClass =
-  "rounded-3xl border border-white/10 bg-white/[0.045] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm transition-all duration-300 hover:border-white/15 hover:bg-white/[0.06]";
+  "rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_12px_36px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300/80 hover:shadow-[0_18px_46px_rgba(15,23,42,0.08)]";
 const primaryButtonClass =
-  "inline-flex items-center justify-center rounded-2xl bg-[#3A8DFF] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)] transition duration-300 hover:bg-[#5a9eff]";
+  "inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]";
 const secondaryButtonClass =
-  "inline-flex items-center justify-center rounded-2xl border border-white/12 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-white/[0.06]";
+  "inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-7 py-3.5 text-sm font-medium text-slate-700 transition duration-300 hover:bg-slate-50 hover:text-slate-900";
 
 function SectionHeader({
   eyebrow,
@@ -131,17 +131,17 @@ function SectionHeader({
   return (
     <div className={`flex max-w-3xl flex-col ${alignClass}`}>
       {eyebrow ? (
-        <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-200/90">
+        <span className="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
           {eyebrow}
         </span>
       ) : null}
 
-      <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+      <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
         {title}
       </h2>
 
       {description ? (
-        <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
+        <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
           {description}
         </p>
       ) : null}
@@ -167,15 +167,15 @@ export default function LoukPeriLandingPage() {
       <div className="fixed bottom-4 right-4 z-50 sm:bottom-5 sm:right-5">
         <a
           href="#contact"
-          className="inline-flex items-center rounded-full border border-white/10 bg-[#3A8DFF] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(58,141,255,0.35)] transition duration-300 hover:scale-[1.03] hover:bg-[#5a9eff]"
+          className="inline-flex items-center rounded-full bg-[#0B1F3A] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.22)] transition duration-300 hover:scale-[1.03] hover:bg-[#11284a]"
         >
           Κλείσε συνάντηση
         </a>
       </div>
 
-      <main className="min-h-screen overflow-hidden bg-[#0B1F3A] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.22),transparent_28%),radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_22%)]" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent)]" />
+      <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(58,141,255,0.12),_transparent_24%),linear-gradient(to_bottom,_#f8fbff,_#ffffff_28%,_#f8fafc_72%,_#ffffff)] text-slate-900">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.10),transparent_26%),radial-gradient(circle_at_top_left,rgba(11,31,58,0.03),transparent_20%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.70),transparent)]" />
 
         <SiteNavbar currentPath="/" />
 
@@ -185,21 +185,21 @@ export default function LoukPeriLandingPage() {
           >
             <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
               <div className="relative z-10">
-                <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-blue-200">
-                  ERP • Dashboards • Automations • Business Systems
+                <div className="inline-flex items-center rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm text-blue-700 shadow-sm backdrop-blur">
+                  ΕΠΙΧΕΙΡΗΣΙΑΚΑ ΣΥΣΤΗΜΑΤΑ
                 </div>
 
-                <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
+                <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
                   Γρήγορα. <span className="text-[#3A8DFF]">Σωστά.</span>
                 </h1>
 
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
                   Φτιάχνουμε custom business systems για επιχειρήσεις που θέλουν
                   λιγότερα λάθη, καλύτερη οργάνωση και πιο γρήγορη καθημερινή
                   λειτουργία.
                 </p>
 
-                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400">
+                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
                   ERP, dashboards, automations και εργαλεία που προσαρμόζονται
                   στον τρόπο που δουλεύει η επιχείρησή σας — όχι το αντίστροφο.
                 </p>
@@ -213,7 +213,7 @@ export default function LoukPeriLandingPage() {
                   </a>
                 </div>
 
-                <div className="mt-10 flex flex-wrap items-center gap-3 text-sm text-slate-400">
+                <div className="mt-10 flex flex-wrap items-center gap-3 text-sm text-slate-500">
                   <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[#3A8DFF]" />
                   Πρακτικές λύσεις με καθαρή σκέψη, σωστή δομή και έμφαση στη
                   λειτουργία.
@@ -221,12 +221,12 @@ export default function LoukPeriLandingPage() {
               </div>
 
               <div className="relative flex items-center justify-center">
-                <div className="absolute -inset-8 rounded-[48px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.18),transparent_45%)] blur-2xl" />
+                <div className="absolute -inset-8 rounded-[48px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.12),transparent_45%)] blur-2xl" />
 
-                <div className="relative z-10 w-full max-w-[560px] rounded-[30px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+                <div className="relative z-10 w-full max-w-[560px] rounded-[30px] border border-slate-200/80 bg-white/90 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur">
                   <div className="mb-6 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200/80 bg-slate-50">
                         <Image
                           src="/logo-icon-flat.png"
                           alt="LoukPeri"
@@ -237,17 +237,17 @@ export default function LoukPeriLandingPage() {
                       </div>
 
                       <div>
-                        <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
+                        <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
                           LoukPeri
                         </p>
-                        <h3 className="mt-1 text-2xl font-semibold text-white">
-                          Daily Overview
+                        <h3 className="mt-1 text-2xl font-semibold text-slate-950">
+                          Καθημερινή Εικόνα
                         </h3>
                       </div>
                     </div>
 
-                    <span className="rounded-full border border-[#3A8DFF]/20 bg-[#3A8DFF]/10 px-3 py-1 text-xs font-medium text-blue-200">
-                      Custom Setup
+                    <span className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+                      Προσαρμοσμένο setup
                     </span>
                   </div>
 
@@ -260,30 +260,30 @@ export default function LoukPeriLandingPage() {
                     ].map(([label, value, note]) => (
                       <div
                         key={label}
-                        className="rounded-2xl border border-white/6 bg-white/[0.04] p-4"
+                        className="rounded-2xl border border-slate-200/80 bg-slate-50 p-4"
                       >
-                        <div className="text-sm text-slate-400">{label}</div>
-                        <div className="mt-2 text-2xl font-semibold text-white">
+                        <div className="text-sm text-slate-500">{label}</div>
+                        <div className="mt-2 text-2xl font-semibold text-slate-950">
                           {value}
                         </div>
-                        <div className="mt-1 text-sm text-slate-500">
+                        <div className="mt-1 text-sm text-slate-400">
                           {note}
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-5 rounded-2xl border border-white/6 bg-white/[0.03] p-4">
+                  <div className="mt-5 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4">
                     <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm text-slate-400">
-                        Operational Visibility
+                      <span className="text-sm text-slate-500">
+                        Επιχειρησιακή ορατότητα
                       </span>
-                      <span className="text-sm font-medium text-blue-200">
-                        Better coordination
+                      <span className="text-sm font-medium text-blue-700">
+                        Καλύτερος συντονισμός
                       </span>
                     </div>
 
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/5">
+                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100">
                       <div className="h-full w-[72%] rounded-full bg-[#3A8DFF]" />
                     </div>
                   </div>
@@ -293,7 +293,7 @@ export default function LoukPeriLandingPage() {
           </div>
         </section>
 
-        <section id="services" className={sectionClass}>
+        <section id="services" className={`${sectionClass} bg-white`}>
           <div className={containerClass}>
             <SectionHeader
               eyebrow="ΥΠΗΡΕΣΙΕΣ"
@@ -304,13 +304,10 @@ export default function LoukPeriLandingPage() {
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               {services.map((item) => (
                 <GlassCard key={item.title} className="h-full">
-                  <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-blue-200">
-                    Λύσεις
-                  </div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-slate-950">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
                     {item.description}
                   </p>
                 </GlassCard>
@@ -319,7 +316,7 @@ export default function LoukPeriLandingPage() {
           </div>
         </section>
 
-        <section className={sectionClass}>
+        <section className={`${sectionClass} bg-slate-50/80`}>
           <div className={containerClass}>
             <SectionHeader
               eyebrow="ΓΙΑΤΙ LOUKPERI"
@@ -331,14 +328,14 @@ export default function LoukPeriLandingPage() {
               {reasons.map((item, index) => (
                 <GlassCard key={item.title}>
                   <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold text-blue-200">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-700">
                       {String(index + 1).padStart(2, "0")}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">
+                      <h3 className="text-lg font-semibold text-slate-950">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-400">
+                      <p className="mt-3 text-sm leading-7 text-slate-600">
                         {item.description}
                       </p>
                     </div>
@@ -349,10 +346,10 @@ export default function LoukPeriLandingPage() {
           </div>
         </section>
 
-        <section className={sectionClass}>
+        <section className={`${sectionClass} bg-white`}>
           <div className={containerClass}>
             <SectionHeader
-              eyebrow="Use Cases"
+              eyebrow="ΣΕΝΑΡΙΑ ΕΦΑΡΜΟΓΗΣ"
               title="Ενδεικτικά σενάρια εφαρμογής"
               description="Παρακάτω βλέπετε παραδείγματα του τύπου λύσεων που μπορούμε να σχεδιάσουμε και να υλοποιήσουμε, ανάλογα με τις ανάγκες κάθε επιχείρησης."
             />
@@ -360,34 +357,34 @@ export default function LoukPeriLandingPage() {
             <div className="mt-12 grid gap-6 xl:grid-cols-3">
               {scenarios.map((item) => (
                 <GlassCard key={item.title} className="h-full">
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-slate-950">
                     {item.title}
                   </h3>
 
                   <div className="mt-6 space-y-6">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-300">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-500">
                         Πρόβλημα
                       </p>
-                      <p className="mt-2 text-sm leading-7 text-slate-400">
+                      <p className="mt-2 text-sm leading-7 text-slate-600">
                         {item.problem}
                       </p>
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-200">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
                         Τι μπορούμε να υλοποιήσουμε
                       </p>
-                      <p className="mt-2 text-sm leading-7 text-slate-300">
+                      <p className="mt-2 text-sm leading-7 text-slate-700">
                         {item.solution}
                       </p>
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600">
                         Στόχος
                       </p>
-                      <p className="mt-2 text-sm leading-7 text-slate-300">
+                      <p className="mt-2 text-sm leading-7 text-slate-700">
                         {item.goal}
                       </p>
                     </div>
@@ -398,10 +395,13 @@ export default function LoukPeriLandingPage() {
           </div>
         </section>
 
-        <section id="process" className={sectionClass}>
+        <section
+          id="process"
+          className={`${sectionClass} bg-[linear-gradient(to_bottom,_rgba(58,141,255,0.04),_rgba(255,255,255,0.9))]`}
+        >
           <div className={containerClass}>
             <SectionHeader
-              eyebrow="Process"
+              eyebrow="ΠΩΣ ΔΟΥΛΕΥΟΥΜΕ"
               title="Πώς δουλεύουμε"
               description="Κάθε συνεργασία ξεκινά από κατανόηση της πραγματικής ανάγκης και προχωρά σε λύση με ξεκάθαρα βήματα."
               align="center"
@@ -410,13 +410,13 @@ export default function LoukPeriLandingPage() {
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               {processSteps.map((step, index) => (
                 <GlassCard key={step.title} className="h-full">
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold text-blue-200">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-700">
                     {index + 1}
                   </div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-slate-950">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
                     {step.description}
                   </p>
                 </GlassCard>
@@ -427,16 +427,16 @@ export default function LoukPeriLandingPage() {
 
         <section className={sectionClass}>
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <div className="rounded-[32px] border border-white/10 bg-white/[0.045] px-6 py-10 text-center shadow-[0_20px_60px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:px-10 sm:py-12">
-              <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-200">
-                Free Assessment
+            <div className="rounded-[32px] border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-slate-50 px-6 py-10 text-center shadow-[0_18px_50px_rgba(59,130,246,0.08)] sm:px-10 sm:py-12">
+              <span className="inline-flex rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
+                ΔΩΡΕΑΝ ΑΞΙΟΛΟΓΗΣΗ
               </span>
 
-              <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <h2 className="mt-6 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 Δωρεάν αρχική αξιολόγηση
               </h2>
 
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                 Σε μια πρώτη σύντομη συνάντηση βλέπουμε πού υπάρχουν χειροκίνητες
                 διαδικασίες, καθυστερήσεις ή έλλειψη καθαρής εικόνας και
                 συζητάμε ποιο μπορεί να είναι το πρώτο σωστό βήμα.
@@ -447,11 +447,11 @@ export default function LoukPeriLandingPage() {
                   href="mailto:info@loukperi.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CE%B4%CF%89%CF%81%CE%B5%CE%AC%CE%BD%20%CE%B1%CF%81%CF%87%CE%B9%CE%BA%CE%AE%20%CE%B1%CE%BE%CE%B9%CE%BF%CE%BB%CF%8C%CE%B3%CE%B7%CF%83%CE%B7"
                   className={primaryButtonClass}
                 >
-                  Κλείσε δωρεάν συνάντηση
+                  Κλείσε συνάντηση
                 </a>
               </div>
 
-              <p className="mt-5 text-sm leading-7 text-slate-400">
+              <p className="mt-5 text-sm leading-7 text-slate-500">
                 Χωρίς δέσμευση. Με πρακτική προσέγγιση και καθαρή συζήτηση πάνω
                 στην ανάγκη σας.
               </p>
@@ -459,10 +459,10 @@ export default function LoukPeriLandingPage() {
           </div>
         </section>
 
-        <section id="contact" className={sectionClass}>
+        <section id="contact" className={`${sectionClass} bg-white`}>
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <SectionHeader
-              eyebrow="Contact"
+              eyebrow="ΕΠΙΚΟΙΝΩΝΙΑ"
               title="Έχει η επιχείρησή σας διαδικασίες που καθυστερούν;"
               description="Αν υπάρχουν Excel, επαναλαμβανόμενες χειροκίνητες ενέργειες ή δυσκολία στην παρακολούθηση της καθημερινής λειτουργίας, μπορούμε να δούμε μαζί τι αξίζει να οργανωθεί πρώτο."
               align="center"
@@ -473,10 +473,10 @@ export default function LoukPeriLandingPage() {
                 href="mailto:info@loukperi.gr?subject=%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BD%20%CE%B3%CE%B9%CE%B1%20%CF%83%CF%85%CE%BD%CE%B5%CF%81%CE%B3%CE%B1%CF%83%CE%AF%CE%B1"
                 className={primaryButtonClass}
               >
-                Μίλησε μαζί μας
+                Κλείσε συνάντηση
               </a>
 
-              <div className="[&>button]:inline-flex [&>button]:items-center [&>button]:justify-center [&>button]:rounded-2xl [&>button]:border [&>button]:border-white/12 [&>button]:bg-white/[0.03] [&>button]:px-7 [&>button]:py-3.5 [&>button]:text-sm [&>button]:font-medium [&>button]:text-white [&>button]:transition [&>button]:duration-300 hover:[&>button]:bg-white/[0.06]">
+              <div className="[&>button]:inline-flex [&>button]:items-center [&>button]:justify-center [&>button]:rounded-2xl [&>button]:border [&>button]:border-slate-200 [&>button]:bg-white [&>button]:px-7 [&>button]:py-3.5 [&>button]:text-sm [&>button]:font-medium [&>button]:text-slate-700 [&>button]:transition [&>button]:duration-300 hover:[&>button]:bg-slate-50 hover:[&>button]:text-slate-900">
                 <InstallPWAButton label="Εγκατάσταση εφαρμογής" />
               </div>
             </div>
