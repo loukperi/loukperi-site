@@ -22,7 +22,7 @@ export default function SiteFooter() {
 		  		className="block h-auto w-[180px] object-contain md:w-[210px]"
 		  		priority
 		  	  />
-		  	  <p className="-mt-2 text-sm font-medium leading-tight text-slate-300 md:text-[15px]">
+		  	  <p className="-mt-1 text-sm font-medium leading-tight text-slate-300 md:text-[15px]">
 		  		Business Systems Builder
 		  	  </p>
 		  	</Link>
