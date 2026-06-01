@@ -4,6 +4,7 @@ import SiteNavbar from "../components/SiteNavbar";
 import SiteFooter from "../components/SiteFooter";
 import BackToTopButton from "../components/BackToTopButton";
 import CoreTabs from "./components/CoreTabs";
+import ScrollToSectionButton from "./components/ScrollToSectionButton";
 
 const modules = [
   {
@@ -160,12 +161,12 @@ export default function LoukPeriCoreOverviewPage() {
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-4">
-                  <Link
-                    href="#customization"
-                    className="inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]"
-                  >
-                    Δες τις ενότητες
-                  </Link>
+                  <ScrollToSectionButton
+				    targetId="customization"
+				    className="inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]"
+				  >
+				    Δες τις 3 ενότητες
+				  </ScrollToSectionButton>
 
                   <a
                     href="/#contact"
@@ -310,7 +311,7 @@ export default function LoukPeriCoreOverviewPage() {
           </div>
         </section>
 
-        <section id="customization" className="relative py-16 md:py-24">
+        <section id="customization" className="scroll-mt-28 px-6 py-24 lg:px-8">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
               eyebrow="ΠΡΟΣΑΡΜΟΓΗ"

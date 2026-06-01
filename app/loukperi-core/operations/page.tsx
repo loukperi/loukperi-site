@@ -272,7 +272,7 @@ export default function LoukPeriCoreOperationsPage() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <SectionHeader
-                eyebrow="ΕΝΔΕΙΚΤΙΚΕΣ ΧΡΗΣΕΙΣ"
+                eyebrow="ΣΤΗΝ ΠΡΑΞΗ"
                 title="Ενδεικτικές χρήσεις"
                 description="Η ενότητα Operations μπορεί να προσαρμοστεί σε εσωτερικές ροές που σήμερα δεν παρακολουθούνται μέσα από κάποιο οργανωμένο σύστημα."
               />

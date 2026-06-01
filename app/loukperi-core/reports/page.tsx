@@ -273,7 +273,7 @@ export default function LoukPeriCoreReportsPage() {
 
             <div>
               <SectionHeader
-                eyebrow="ΕΝΔΕΙΚΤΙΚΕΣ ΧΡΗΣΕΙΣ"
+                eyebrow="ΣΤΗΝ ΠΡΑΞΗ"
                 title="Ενδεικτικές χρήσεις"
                 description="Η ενότητα Reports προσαρμόζεται στα σημεία όπου η επιχείρηση χρειάζεται καλύτερη εικόνα και περισσότερη ορατότητα."
               />
