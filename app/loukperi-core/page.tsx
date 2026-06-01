@@ -57,7 +57,7 @@ const audiences = [
   "Εμπορικές εταιρείες με ERP και πολλαπλές ροές",
   "Επιχειρήσεις με eShop, APIs ή τρίτα συστήματα",
   "Ομάδες που θέλουν dashboards, integrations και πιο καθαρή λειτουργία",
-  "Εταιρείες που θέλουν modular λύση και όχι βαριά αντικατάσταση όλων των συστημάτων",
+  "Εταιρείες που θέλουν ενιαία λύση και όχι βαριά αντικατάσταση όλων των συστημάτων",
 ];
 
 function SectionHeader({
@@ -140,21 +140,21 @@ export default function LoukPeriCoreOverviewPage() {
             <div className="grid items-start gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
               <div className="relative z-10">
                 <div className="inline-flex items-center rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm text-blue-700 shadow-sm backdrop-blur">
-                  LoukPeri Core • Modular Business Platform
+                  LoukPeri Core • Ενιαία Επιχειρησιακή πλατφόρμα
                 </div>
 
                 <h1 className="mt-8 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-                  Μία πλατφόρμα. <span className="text-[#3A8DFF]">Τρία modules.</span>
+                  Μία πλατφόρμα. <span className="text-[#3A8DFF]">Τρεις λειτουργικές ενότητες.</span>
                 </h1>
 
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
-                  Το LoukPeri Core είναι μία modular business platform που
-                  οργανώνει reporting, διασυνδέσεις και καθημερινή λειτουργία
-                  πάνω στην ίδια λογική πλατφόρμας.
+                  Το LoukPeri Core είναι μία ενιαία επιχειρησιακή πλατφόρμα
+				  που οργανώνει reporting, διασυνδέσεις και καθημερινή
+				  λειτουργία κάτω από την ίδια λογική.
                 </p>
 
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-500">
-                  Ξεκινάς από το module που χρειάζεσαι σήμερα και επεκτείνεσαι
+                  Ξεκινάς από την ενότητα που χρειάζεσαι σήμερα και επεκτείνεσαι
                   σταδιακά, χωρίς να στήνεις κάθε φορά ξεχωριστό app ή
                   αποσπασματική λύση.
                 </p>
@@ -164,7 +164,7 @@ export default function LoukPeriCoreOverviewPage() {
                     href="#customization"
                     className="inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]"
                   >
-                    Δες όλα τα modules
+                    Δες τις ενότητες
                   </Link>
 
                   <a
@@ -248,9 +248,9 @@ export default function LoukPeriCoreOverviewPage() {
         <section id="how-it-works" className="relative py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="How it works"
+              eyebrow="ΛΕΙΤΟΥΡΓΙΑ"
               title="Πώς λειτουργεί στην πράξη"
-              description="Δεν πρόκειται για 3 άσχετα προϊόντα. Είναι μία κοινή πλατφόρμα όπου ενεργοποιείς τα modules που χρειάζεται η επιχείρησή σου."
+              description="Δεν πρόκειται για 3 άσχετα προϊόντα. Είναι μία κοινή πλατφόρμα όπου ενεργοποιείς τις ενότητες που χρειάζεται η επιχείρησή σου."
             />
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -268,7 +268,7 @@ export default function LoukPeriCoreOverviewPage() {
                 {
                   step: "03",
                   title: "Επεκτείνεσαι σταδιακά",
-                  text: "Καθώς ωριμάζει η ανάγκη, ενεργοποιείς και τα υπόλοιπα modules χωρίς να σπάει η συνοχή του συστήματος.",
+                  text: "Καθώς ωριμάζει η ανάγκη, ενεργοποιείς και τις υπόλοιπες ενότητες χωρίς να σπάει η συνοχή του συστήματος.",
                 },
               ].map((item) => (
                 <SoftCard key={item.step}>
@@ -290,7 +290,7 @@ export default function LoukPeriCoreOverviewPage() {
         <section id="what-it-solves" className="relative py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="What it solves"
+              eyebrow="ΕΠΙΧΕΙΡΗΣΙΑΚΕΣ ΤΡΙΒΕΣ"
               title="Τι λύνει το LoukPeri Core"
               description="Το προϊόν έχει νόημα όταν η επιχείρηση έχει ταυτόχρονα ανάγκη για εικόνα, ροή δεδομένων και καθαρότερη λειτουργία."
             />
@@ -313,7 +313,7 @@ export default function LoukPeriCoreOverviewPage() {
         <section id="customization" className="relative py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="Customization"
+              eyebrow="ΠΡΟΣΑΡΜΟΓΗ"
               title="Προσαρμογή ανά πελάτη, όχι one-size-fits-all"
               description="Η ίδια πλατφόρμα μπορεί να ενεργοποιείται διαφορετικά ανά επιχείρηση, ανάλογα με το pain point και το maturity level."
             />
@@ -334,7 +334,7 @@ export default function LoukPeriCoreOverviewPage() {
                     href={module.href}
                     className="mt-6 inline-flex items-center text-sm font-semibold text-blue-700 transition hover:text-slate-900"
                   >
-                    Άνοιγμα module →
+                    Άνοιγμα ενότητας →
                   </Link>
                 </SoftCard>
               ))}
@@ -345,7 +345,7 @@ export default function LoukPeriCoreOverviewPage() {
         <section id="for-whom" className="relative py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="For whom"
+              eyebrow="ΙΔΑΝΙΚΟ ΓΙΑ"
               title="Για ποιους είναι"
               description="Το LoukPeri Core δεν απευθύνεται σε μία μόνο κατηγορία εταιρειών. Απευθύνεται σε επιχειρήσεις που έχουν λειτουργικές τριβές και θέλουν modular βελτίωση."
             />
@@ -365,9 +365,9 @@ export default function LoukPeriCoreOverviewPage() {
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
               <SoftCard>
                 <SectionHeader
-                  eyebrow="Pilot"
+                  eyebrow="ΠΡΩΤΟ ΒΗΜΑ"
                   title="Η σωστή πρώτη υλοποίηση"
-                  description="Στις περισσότερες περιπτώσεις, η πιο σωστή εκκίνηση είναι από το module που δίνει το πιο άμεσο επιχειρησιακό αποτέλεσμα."
+                  description="Στις περισσότερες περιπτώσεις, η πιο σωστή εκκίνηση είναι από την ενότητα που δίνει το πιο άμεσο επιχειρησιακό αποτέλεσμα."
                 />
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -402,7 +402,7 @@ export default function LoukPeriCoreOverviewPage() {
 
               <div className="rounded-3xl border border-blue-100 bg-blue-50/70 p-6 shadow-[0_12px_36px_rgba(15,23,42,0.05)]">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
-                  Recommended approach
+                  ΠΡΟΤΕΙΝΟΜΕΝΗ ΠΡΟΣΕΓΓΙΣΗ
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold text-slate-950">
                   Ξεκίνα lean. Επέκτεινε modular.
@@ -419,8 +419,8 @@ export default function LoukPeriCoreOverviewPage() {
         <section id="contact" className="relative py-16 md:py-24">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <SectionHeader
-              eyebrow="Contact"
-              title="Θες να δούμε ποιο module είναι το σωστό πρώτο βήμα;"
+              eyebrow="ΕΠΙΚΟΙΝΩΝΙΑ"
+              title="Θες να δούμε ποια ενότητα είναι το σωστό πρώτο βήμα;"
               description="Μπορούμε να συζητήσουμε την ανάγκη σου και να δούμε αν ξεκινάς από Reports, Bridge ή Operations — πάντα με βάση το πραγματικό operational pain point."
               center
             />

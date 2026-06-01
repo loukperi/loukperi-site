@@ -157,14 +157,15 @@ export default function LoukPeriCoreOperationsPage() {
                 </h1>
 
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
-                  Το Operations module βοηθά την επιχείρηση να παρακολουθεί
-                  εργασίες, εγκρίσεις, reminders και workflows μέσα από μία
-                  καθαρή operational λογική.
+                  Η ενότητα Operations βοηθά την επιχείρηση να οργανώνει εργασίες,
+				  εγκρίσεις, υπενθυμίσεις και ροές εργασίας μέσα από μία καθαρή
+				  λειτουργική λογική.
                 </p>
 
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-500">
-                  Είναι το module που βάζει σειρά εκεί όπου σήμερα επικρατεί
-                  διάσπαρτη επικοινωνία, ad hoc follow-up και έλλειψη ορατότητας.
+                  Είναι η ενότητα που βάζει σειρά σε σημεία όπου η επικοινωνία
+				  είναι διάσπαρτη, η παρακολούθηση γίνεται αποσπασματικά και
+				  η ορατότητα είναι περιορισμένη.
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-4">
@@ -247,9 +248,9 @@ export default function LoukPeriCoreOperationsPage() {
         <section className="relative py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="What it solves"
-              title="Τι λύνει"
-              description="Το Operations module έχει αξία όταν η καθημερινή λειτουργία δεν μπορεί να στηρίζεται άλλο σε τηλεφωνήματα, emails και χαμένες εκκρεμότητες."
+              eyebrow="ΠΟΥ ΒΟΗΘΑΕΙ"
+              title="Όταν η καθημερινή λειτουργία χρειάζεται περισσότερη οργάνωση"
+              description="Η ενότητα Operations έχει αξία όταν η καθημερινή λειτουργία χρειάζεται περισσότερη οργάνωση από τηλεφωνήματα, emails και πρόχειρες λίστες."
             />
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -271,9 +272,9 @@ export default function LoukPeriCoreOperationsPage() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <SectionHeader
-                eyebrow="Use cases"
+                eyebrow="ΕΝΔΕΙΚΤΙΚΕΣ ΧΡΗΣΕΙΣ"
                 title="Ενδεικτικές χρήσεις"
-                description="Το module μπορεί να προσαρμοστεί σε operational flows που σήμερα μένουν εκτός συστήματος."
+                description="Η ενότητα Operations μπορεί να προσαρμοστεί σε εσωτερικές ροές που σήμερα δεν παρακολουθούνται μέσα από κάποιο οργανωμένο σύστημα."
               />
 
               <div className="mt-8 grid gap-4">
@@ -292,7 +293,7 @@ export default function LoukPeriCoreOperationsPage() {
 
             <div>
               <SectionHeader
-                eyebrow="Workflow model"
+                eyebrow="ΜΟΝΤΕΛΟ ΡΟΗΣ"
                 title="Πώς δουλεύει"
                 description="Η αξία έρχεται όταν οι εκκρεμότητες ακολουθούν καθαρή operational ροή και όχι ad hoc επικοινωνία."
               />
@@ -319,9 +320,9 @@ export default function LoukPeriCoreOperationsPage() {
         <section className="relative py-16 md:py-24">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <SectionHeader
-              eyebrow="Next step"
+              eyebrow="ΠΡΩΤΟ ΒΗΜΑ"
               title="Όταν η καθημερινότητα γίνεται workflow"
-              description="Το Operations module βάζει σειρά σε εσωτερικές ροές που σήμερα χάνονται σε τηλέφωνα, emails και πρόχειρες λίστες."
+              description="Η ενότητα Operations οργανώνει εσωτερικές ροές που σήμερα χάνονται ανάμεσα σε τηλέφωνα, emails και πρόχειρες λίστες."
               center
             />
 

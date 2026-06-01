@@ -326,17 +326,16 @@ export default function LoukPeriLandingPage() {
                 </span>
 
                 <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Μία πλατφόρμα. Τρία modules.
+                  Μία πλατφόρμα. Τρεις λειτουργικές ενότητες.
                 </h2>
 
                 <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                  Το LoukPeri Core είναι μία modular business platform που οργανώνει
-                  reporting, διασυνδέσεις και καθημερινή λειτουργία πάνω στην ίδια
-                  λογική πλατφόρμας.
+                  Το LoukPeri Core είναι μία ενιαία επιχειρησιακή πλατφόρμα που οργανώνει
+				  reporting, διασυνδέσεις και καθημερινή λειτουργία κάτω από την ίδια λογική.
                 </p>
 
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
-                  Ξεκινάς από το module που χρειάζεσαι σήμερα και επεκτείνεσαι σταδιακά,
+                  Ξεκινάς από την ενότητα που χρειάζεσαι σήμερα και επεκτείνεσαι σταδιακά,
                   χωρίς να στήνεις κάθε φορά ξεχωριστό app ή αποσπασματική λύση.
                 </p>
 
@@ -600,7 +599,7 @@ export default function LoukPeriLandingPage() {
               </a>
 
               <div className="[&>button]:inline-flex [&>button]:items-center [&>button]:justify-center [&>button]:rounded-2xl [&>button]:border [&>button]:border-slate-200 [&>button]:bg-white [&>button]:px-7 [&>button]:py-3.5 [&>button]:text-sm [&>button]:font-medium [&>button]:text-slate-700 [&>button]:transition [&>button]:duration-300 hover:[&>button]:bg-slate-50 hover:[&>button]:text-slate-900">
-                <InstallPWAButton label="Εγκατάσταση εφαρμογής" />
+                <InstallPWAButton label="Προσθήκη γρήγορης πρόσβασης" />
               </div>
             </div>
           </div>

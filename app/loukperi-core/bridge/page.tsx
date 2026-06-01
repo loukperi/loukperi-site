@@ -149,9 +149,9 @@ export default function LoukPeriCoreBridgePage() {
                 </h1>
 
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
-                  Το Bridge module αναλαμβάνει transactional flows και
-                  ανταλλαγή δεδομένων μεταξύ ERP, eShop, courier, ΕΚΑΠΥ και
-                  άλλων systems.
+                  Η ενότητα Bridge οργανώνει την ανταλλαγή δεδομένων
+				  και τις κρίσιμες ροές μεταξύ ERP, eShop, courier,
+				  ΕΚΑΠΥ και άλλων συστημάτων.
                 </p>
 
                 <p className="mt-4 max-w-3xl text-base leading-7 text-slate-500">
@@ -239,9 +239,9 @@ export default function LoukPeriCoreBridgePage() {
         <section className="relative py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="What it solves"
-              title="Τι λύνει"
-              description="Το Bridge module έχει νόημα όταν οι διασυνδέσεις δεν είναι απλώς τεχνικό θέμα αλλά λειτουργικό bottleneck."
+              eyebrow="ΠΟΥ ΒΟΗΘΑΕΙ"
+              title="Όταν οι διασυνδέσεις δημιουργούν λειτουργική τριβή"
+              description="Η ενότητα Bridge είναι κατάλληλη όταν οι διασυνδέσεις μεταξύ συστημάτων επηρεάζουν τη ροή εργασίας και δημιουργούν λειτουργική τριβή."
             />
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -263,7 +263,7 @@ export default function LoukPeriCoreBridgePage() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <SectionHeader
-                eyebrow="Capabilities"
+                eyebrow="ΔΥΝΑΤΟΤΗΤΕΣ"
                 title="Bridge capabilities"
                 description="Επιχειρησιακά ασφαλής λογική για integrations που δεν αρκεί να “συνδέονται”, αλλά πρέπει και να ελέγχονται."
               />
@@ -282,7 +282,7 @@ export default function LoukPeriCoreBridgePage() {
 
             <div>
               <SectionHeader
-                eyebrow="Flow model"
+                eyebrow="ΜΟΝΤΕΛΟ ΡΟΗΣ"
                 title="Πώς δουλεύει"
                 description="Κάθε integration flow πρέπει να περνά από σαφή βήματα και όχι από “μαγικό sync”."
               />
@@ -309,9 +309,9 @@ export default function LoukPeriCoreBridgePage() {
         <section className="relative py-16 md:py-24">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <SectionHeader
-              eyebrow="Next step"
+              eyebrow="ΠΡΩΤΟ ΒΗΜΑ"
               title="Όχι άλλα manual περάσματα"
-              description="Το Bridge module μειώνει λάθη, διπλοπεράσματα και χαμένο χρόνο σε ροές που σήμερα γίνονται χειροκίνητα ή ασύνδετα."
+              description="Η ενότητα Bridge μειώνει λάθη, διπλοπεράσματα και χαμένο χρόνο, οργανώνοντας ροές που σήμερα εκτελούνται χειροκίνητα ή ασύνδετα."
               center
             />
 

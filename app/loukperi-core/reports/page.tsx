@@ -141,7 +141,7 @@ export default function LoukPeriCoreReportsPage() {
                 </h1>
 
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
-                  Το Reports module συγκεντρώνει δεδομένα από πολλαπλές πηγές
+                  Η ενότητα Reports συγκεντρώνει δεδομένα από πολλαπλές πηγές
                   και τα μετατρέπει σε χρήσιμη, καθημερινή επιχειρησιακή εικόνα.
                 </p>
 
@@ -230,9 +230,9 @@ export default function LoukPeriCoreReportsPage() {
         <section className="relative py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="What it solves"
-              title="Τι λύνει"
-              description="Το Reports module έχει αξία όταν η επιχείρηση χρειάζεται καθαρή εικόνα χωρίς να ζει μέσα σε manual exports και πολλαπλά αρχεία."
+              eyebrow="ΠΟΥ ΒΟΗΘΑΕΙ"
+              title="Όταν χρειάζεται καθαρή επιχειρησιακή εικόνα"
+              description="Η ενότητα Reports έχει αξία όταν η επιχείρηση χρειάζεται καθαρή εικόνα, χωρίς να βασίζεται σε χειροκίνητες εξαγωγές δεδομένων και πολλαπλά αρχεία."
             />
 
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -254,7 +254,7 @@ export default function LoukPeriCoreReportsPage() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <SectionHeader
-                eyebrow="Capabilities"
+                eyebrow="ΔΥΝΑΤΟΤΗΤΕΣ"
                 title="Τι περιλαμβάνει"
                 description="Ένα ευέλικτο reporting layer που πατάει πάνω στα δεδομένα της επιχείρησης."
               />
@@ -273,9 +273,9 @@ export default function LoukPeriCoreReportsPage() {
 
             <div>
               <SectionHeader
-                eyebrow="Use cases"
+                eyebrow="ΕΝΔΕΙΚΤΙΚΕΣ ΧΡΗΣΕΙΣ"
                 title="Ενδεικτικές χρήσεις"
-                description="Το Reports module μπορεί να προσαρμοστεί ανάλογα με το σημείο που χρειάζεται η επιχείρηση περισσότερη ορατότητα."
+                description="Η ενότητα Reports προσαρμόζεται στα σημεία όπου η επιχείρηση χρειάζεται καλύτερη εικόνα και περισσότερη ορατότητα."
               />
 
               <div className="mt-8 grid gap-4">
@@ -297,7 +297,7 @@ export default function LoukPeriCoreReportsPage() {
         <section className="relative py-16 md:py-24">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <SectionHeader
-              eyebrow="Next step"
+              eyebrow="ΠΡΩΤΟ ΒΗΜΑ"
               title="Ξεκίνα από το reporting layer"
               description="Συνήθως είναι το πιο γρήγορο entry point για επιχειρήσεις που θέλουν άμεσο operational insight χωρίς βαρύ πρώτο scope."
               center
