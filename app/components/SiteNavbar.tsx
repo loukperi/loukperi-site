@@ -15,6 +15,7 @@ export default function SiteNavbar({
 
   const navItems = isCorePath
     ? [
+        { label: "Αρχική", href: "/" },
         { label: "Overview", href: "/loukperi-core" },
         { label: "Reports", href: "/loukperi-core/reports" },
         { label: "Bridge", href: "/loukperi-core/bridge" },
@@ -46,17 +47,7 @@ export default function SiteNavbar({
 
   const closeMobileMenu = () => setMobileOpen(false);
 
-  const isActive = (href: string) => {
-    if (href === "/loukperi-core") return currentPath === "/loukperi-core";
-    if (href === "/loukperi-core/reports")
-      return currentPath === "/loukperi-core/reports";
-    if (href === "/loukperi-core/bridge")
-      return currentPath === "/loukperi-core/bridge";
-    if (href === "/loukperi-core/operations")
-      return currentPath === "/loukperi-core/operations";
-    if (href === "/") return currentPath === "/";
-    return false;
-  };
+  const isActive = (href: string) => currentPath === href;
 
   return (
     <>

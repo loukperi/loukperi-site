@@ -48,8 +48,10 @@ export default function LoukPeriCoreOverviewPage() {
         </a>
       </div>
 
-      <main className="min-h-screen overflow-hidden bg-[#0B1F3A] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.18),transparent_28%),radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_22%)]" />
+	  <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(58,141,255,0.12),_transparent_24%),linear-gradient(to_bottom,_#f8fbff,_#ffffff_28%,_#f8fafc_72%,_#ffffff)] text-slate-900">
+		<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.10),transparent_26%),radial-gradient(circle_at_top_left,rgba(11,31,58,0.03),transparent_20%)]" />
+
+
 
         <SiteNavbar currentPath="/loukperi-core" />
 
