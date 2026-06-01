@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import SiteNavbar from "../../components/SiteNavbar";
 import SiteFooter from "../../components/SiteFooter";
 import BackToTopButton from "../../components/BackToTopButton";
+import CoreTabs from "../components/CoreTabs";
 
 const flows = [
   "eShop → ERP",
@@ -98,7 +100,7 @@ function SoftCard({
   children,
   className = "",
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) {
   return (
@@ -172,6 +174,8 @@ export default function LoukPeriCoreBridgePage() {
                     Επιστροφή στο overview
                   </Link>
                 </div>
+
+                <CoreTabs currentPath="/loukperi-core/bridge" />
               </div>
 
               <div>

@@ -20,8 +20,8 @@ export default function CoreTabs({ currentPath }: { currentPath: string }) {
             className={[
               "inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition",
               active
-                ? "bg-[#3A8DFF] text-white shadow-[0_12px_30px_rgba(58,141,255,0.28)]"
-                : "border border-white/12 bg-white/[0.03] text-slate-300 hover:bg-white/[0.06] hover:text-white",
+                ? "bg-[#0B1F3A] text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)]"
+                : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-900",
             ].join(" ")}
           >
             {tab.label}

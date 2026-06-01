@@ -1,9 +1,18 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import SiteNavbar from "../../components/SiteNavbar";
 import SiteFooter from "../../components/SiteFooter";
 import BackToTopButton from "../../components/BackToTopButton";
+import CoreTabs from "../components/CoreTabs";
 
-const sources = ["ERP", "Databases", "APIs", "Excel / CSV", "eShop", "Άλλα συστήματα"];
+const sources = [
+  "ERP",
+  "Databases",
+  "APIs",
+  "Excel / CSV",
+  "eShop",
+  "Άλλα συστήματα",
+];
 
 const capabilities = [
   "Dashboards",
@@ -83,7 +92,7 @@ function SoftCard({
   children,
   className = "",
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) {
   return (
@@ -156,6 +165,8 @@ export default function LoukPeriCoreReportsPage() {
                     Επιστροφή στο overview
                   </Link>
                 </div>
+
+                <CoreTabs currentPath="/loukperi-core/reports" />
               </div>
 
               <div>
