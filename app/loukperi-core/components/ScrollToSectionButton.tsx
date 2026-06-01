@@ -31,9 +31,13 @@ export default function ScrollToSectionButton({
     window.history.replaceState(null, "", `#${targetId}`);
   };
 
-  return (
-    <button type="button" onClick={handleClick} className={className}>
-      {children}
-    </button>
-  );
+	return (
+	<button
+		type="button"
+		onClick={handleClick}
+		className={`cursor-pointer ${className}`}
+	>
+		{children}
+	</button>
+	);
 }
