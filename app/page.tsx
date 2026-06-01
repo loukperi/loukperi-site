@@ -1,140 +1,84 @@
-import type { ReactNode } from "react";
-import Image from "next/image";
-import InstallPWAButton from "./components/InstallPWAButton";
-import BackToTopButton from "./components/BackToTopButton";
-import SiteNavbar from "./components/SiteNavbar";
-import SiteFooter from "./components/SiteFooter";
+import Link from "next/link";
+import SiteNavbar from "../components/SiteNavbar";
+import SiteFooter from "../components/SiteFooter";
+import BackToTopButton from "../components/BackToTopButton";
 
-const services = [
+const modules = [
   {
-    title: "ERP & Operations Systems",
+    title: "Reports",
     description:
-      "Συστήματα προσαρμοσμένα στις πραγματικές ροές της επιχείρησής σας, ώστε η καθημερινή λειτουργία να γίνεται πιο οργανωμένη και πιο ελεγχόμενη.",
+      "Dashboards, KPIs και consolidated reporting από ERP, βάσεις, APIs, Excel και άλλα συστήματα.",
+    href: "/loukperi-core/reports",
+    points: ["Dashboards", "KPIs", "Consolidated reporting"],
   },
   {
-    title: "Dashboards & Reporting",
+    title: "Bridge",
     description:
-      "Καθαρή εικόνα για παραγγελίες, εργασίες, αποθέματα, εκκρεμότητες και βασικά επιχειρησιακά δεδομένα μέσα από εύχρηστα dashboards.",
+      "Διασυνδέσεις μεταξύ συστημάτων με validation, mapping, logs, retries και ασφαλή ροή δεδομένων.",
+    href: "/loukperi-core/bridge",
+    points: ["Integrations", "Validation", "Sync jobs"],
   },
   {
-    title: "Automations & Integrations",
+    title: "Operations",
     description:
-      "Αυτοματοποιήσεις και συνδέσεις μεταξύ συστημάτων που μειώνουν τις επαναλαμβανόμενες χειροκίνητες ενέργειες και περιορίζουν τα λάθη.",
-  },
-  {
-    title: "Technical Consulting",
-    description:
-      "Σωστή ανάλυση πριν την υλοποίηση, ώστε κάθε λύση να ξεκινά με καθαρή λογική, σωστή αρχιτεκτονική και ρεαλιστικό πλάνο.",
+      "Tasks, approvals, reminders, notifications και workflows για πιο καθαρή εσωτερική λειτουργία.",
+    href: "/loukperi-core/operations",
+    points: ["Tasks", "Approvals", "Workflows"],
   },
 ];
 
-const reasons = [
+const foundations = [
+  "Auth & Users",
+  "Roles / RBAC",
+  "Workspaces & Companies",
+  "Integrations & Sync Jobs",
+  "Logs / Audit Trail",
+  "Settings",
+];
+
+const problems = [
   {
-    title: "Καθαρή σκέψη πριν την υλοποίηση",
-    description:
-      "Ξεκινάμε από το πρόβλημα, τη ροή και τον στόχο της επιχείρησης — όχι από έτοιμα templates ή τυχαία features.",
+    title: "Διάσπαρτη εικόνα",
+    text: "Όταν τα δεδομένα βρίσκονται σε ERP, Excel, APIs και διαφορετικά εργαλεία, η επιχείρηση χάνει χρόνο μέχρι να αποκτήσει καθαρή εικόνα.",
   },
   {
-    title: "Λύσεις προσαρμοσμένες στις ανάγκες σας",
-    description:
-      "Κάθε επιχείρηση δουλεύει διαφορετικά. Γι’ αυτό σχεδιάζουμε συστήματα που προσαρμόζονται στον τρόπο λειτουργίας σας.",
+    title: "Χειροκίνητες διασυνδέσεις",
+    text: "Παραγγελίες, ενημερώσεις και ανταλλαγή δεδομένων περνάνε από ανθρώπους αντί για ασφαλείς και ελεγχόμενες ροές.",
   },
   {
-    title: "Άμεση επικοινωνία και συνεργασία",
-    description:
-      "Μιλάτε απευθείας με τον άνθρωπο που αναλύει, σχεδιάζει και υλοποιεί τη λύση, χωρίς περιττή πολυπλοκότητα.",
-  },
-  {
-    title: "Έμφαση σε λειτουργία και αποτέλεσμα",
-    description:
-      "Στόχος μας δεν είναι απλώς να φαίνεται σωστό. Είναι να δουλεύει σωστά και να βελτιώνει την καθημερινότητα της επιχείρησης.",
+    title: "Χαοτική καθημερινή λειτουργία",
+    text: "Εγκρίσεις, εκκρεμότητες, reminders και εσωτερικές εργασίες χάνονται σε τηλέφωνα, emails και πρόχειρες λίστες.",
   },
 ];
 
-const scenarios = [
-  {
-    title: "Εταιρεία λιανικής",
-    problem:
-      "Διαχείριση με Excel, καθυστερήσεις στις παραγγελίες και περιορισμένη εικόνα για αποθέματα και εκκρεμότητες.",
-    solution:
-      "Custom ERP, dashboard παρακολούθησης και αυτοματοποιημένες ροές για καλύτερη οργάνωση της καθημερινής λειτουργίας.",
-    goal: "Λιγότερα λάθη, καλύτερος έλεγχος και ταχύτερη διαχείριση.",
-  },
-  {
-    title: "Εταιρεία υπηρεσιών",
-    problem:
-      "Διάσπαρτη πληροφορία, χειροκίνητη παρακολούθηση εργασιών και δυσκολία στη συνολική εικόνα έργων και πελατών.",
-    solution:
-      "Workflow dashboard, task tracking, συγκεντρωμένη καταγραφή εργασιών και βασικό reporting.",
-    goal:
-      "Καλύτερη οργάνωση ομάδας, καθαρότερη παρακολούθηση και λιγότερος χαμένος χρόνος.",
-  },
-  {
-    title: "Επιχείρηση logistics / διανομών",
-    problem:
-      "Καθυστερήσεις στην ενημέρωση, περιορισμένη ορατότητα στη ροή εργασιών και δύσκολος συντονισμός.",
-    solution:
-      "Operations dashboard, status tracking και αυτοματοποιημένες ενημερώσεις για καλύτερη διαχείριση της ροής.",
-    goal:
-      "Πιο καθαρή εικόνα, πιο γρήγορες αποφάσεις και καλύτερος συντονισμός.",
-  },
+const audiences = [
+  "Εμπορικές εταιρείες με ERP και πολλαπλές ροές",
+  "Επιχειρήσεις με eShop, APIs ή τρίτα συστήματα",
+  "Ομάδες που θέλουν dashboards, integrations και πιο καθαρή λειτουργία",
+  "Εταιρείες που θέλουν modular λύση και όχι βαριά αντικατάσταση όλων των συστημάτων",
 ];
-
-const processSteps = [
-  {
-    title: "Καταγραφή αναγκών",
-    description:
-      "Συζητάμε πώς λειτουργεί σήμερα η επιχείρησή σας, πού υπάρχουν καθυστερήσεις, λάθη ή έλλειψη ορατότητας.",
-  },
-  {
-    title: "Σχεδιασμός λύσης",
-    description:
-      "Ορίζουμε τη σωστή δομή, τις βασικές λειτουργίες και την τεχνική κατεύθυνση με βάση τις πραγματικές σας ανάγκες.",
-  },
-  {
-    title: "Υλοποίηση",
-    description:
-      "Προχωράμε σε κατασκευή του συστήματος με έμφαση στη χρηστικότητα, τη σαφήνεια και τη λειτουργία.",
-  },
-  {
-    title: "Βελτίωση και εξέλιξη",
-    description:
-      "Μετά την αρχική υλοποίηση, η λύση μπορεί να επεκταθεί και να βελτιωθεί σύμφωνα με τη χρήση και την εξέλιξη της επιχείρησης.",
-  },
-];
-
-const sectionClass = "relative py-16 md:py-24";
-const containerClass = "mx-auto max-w-7xl px-6 lg:px-8";
-const cardClass =
-  "rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_12px_36px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300/80 hover:shadow-[0_18px_46px_rgba(15,23,42,0.08)]";
-const primaryButtonClass =
-  "inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]";
-const secondaryButtonClass =
-  "inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-7 py-3.5 text-sm font-medium text-slate-700 transition duration-300 hover:bg-slate-50 hover:text-slate-900";
 
 function SectionHeader({
   eyebrow,
   title,
   description,
-  align = "left",
+  center = false,
 }: {
-  eyebrow?: string;
+  eyebrow: string;
   title: string;
   description?: string;
-  align?: "left" | "center";
+  center?: boolean;
 }) {
-  const alignClass =
-    align === "center"
-      ? "mx-auto items-center text-center"
-      : "items-start text-left";
-
   return (
-    <div className={`flex max-w-3xl flex-col ${alignClass}`}>
-      {eyebrow ? (
-        <span className="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
-          {eyebrow}
-        </span>
-      ) : null}
+    <div
+      className={[
+        "flex max-w-3xl flex-col",
+        center ? "mx-auto items-center text-center" : "items-start text-left",
+      ].join(" ")}
+    >
+      <span className="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
+        {eyebrow}
+      </span>
 
       <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
         {title}
@@ -149,24 +93,35 @@ function SectionHeader({
   );
 }
 
-function GlassCard({
+function SoftCard({
   children,
   className = "",
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={`${cardClass} ${className}`}>{children}</div>;
+  return (
+    <div
+      className={[
+        "rounded-3xl border border-slate-200/80 bg-white p-6",
+        "shadow-[0_12px_36px_rgba(15,23,42,0.05)]",
+        "transition-all duration-300 hover:-translate-y-1 hover:border-slate-300/80 hover:shadow-[0_18px_46px_rgba(15,23,42,0.08)]",
+        className,
+      ].join(" ")}
+    >
+      {children}
+    </div>
+  );
 }
 
-export default function LoukPeriLandingPage() {
+export default function LoukPeriCoreOverviewPage() {
   return (
     <>
       <BackToTopButton />
 
       <div className="fixed bottom-4 right-4 z-50 sm:bottom-5 sm:right-5">
         <a
-          href="#contact"
+          href="/#contact"
           className="inline-flex items-center rounded-full bg-[#0B1F3A] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.22)] transition duration-300 hover:scale-[1.03] hover:bg-[#11284a]"
         >
           Κλείσε συνάντηση
@@ -177,308 +132,336 @@ export default function LoukPeriLandingPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.10),transparent_26%),radial-gradient(circle_at_top_left,rgba(11,31,58,0.03),transparent_20%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.70),transparent)]" />
 
-        <SiteNavbar currentPath="/" />
+        <SiteNavbar currentPath="/loukperi-core" />
 
-        <section className="relative overflow-hidden">
-          <div
-            className={`${containerClass} pb-24 pt-24 sm:pb-28 sm:pt-28 lg:pb-32 lg:pt-36`}
-          >
-            <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <section id="what-is" className="relative overflow-hidden">
+          <div className="mx-auto max-w-7xl px-6 pb-24 pt-24 sm:pb-28 sm:pt-28 lg:px-8 lg:pb-32 lg:pt-36">
+            <div className="grid items-start gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
               <div className="relative z-10">
                 <div className="inline-flex items-center rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm text-blue-700 shadow-sm backdrop-blur">
-                  ΕΠΙΧΕΙΡΗΣΙΑΚΑ ΣΥΣΤΗΜΑΤΑ
+                  LoukPeri Core • Modular Business Platform
                 </div>
 
-                <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-                  Γρήγορα. <span className="text-[#3A8DFF]">Σωστά.</span>
+                <h1 className="mt-8 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
+                  Μία πλατφόρμα. <span className="text-[#3A8DFF]">Τρία modules.</span>
                 </h1>
 
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-                  Φτιάχνουμε custom business systems για επιχειρήσεις που θέλουν
-                  λιγότερα λάθη, καλύτερη οργάνωση και πιο γρήγορη καθημερινή
-                  λειτουργία.
+                <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
+                  Το LoukPeri Core είναι μία modular business platform που
+                  οργανώνει reporting, διασυνδέσεις και καθημερινή λειτουργία
+                  πάνω στην ίδια λογική πλατφόρμας.
                 </p>
 
-                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
-                  ERP, dashboards, automations και εργαλεία που προσαρμόζονται
-                  στον τρόπο που δουλεύει η επιχείρησή σας — όχι το αντίστροφο.
+                <p className="mt-4 max-w-3xl text-base leading-7 text-slate-500">
+                  Ξεκινάς από το module που χρειάζεσαι σήμερα και επεκτείνεσαι
+                  σταδιακά, χωρίς να στήνεις κάθε φορά ξεχωριστό app ή αποσπασματική
+                  λύση.
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-4">
-                  <a href="#contact" className={primaryButtonClass}>
-                    Κλείσε συνάντηση
-                  </a>
-                  <a href="#services" className={secondaryButtonClass}>
-                    Δες τι μπορούμε να υλοποιήσουμε
+                  <Link
+                    href="/loukperi-core/reports"
+                    className="inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]"
+                  >
+                    Δες τα modules
+                  </Link>
+
+                  <a
+                    href="/#contact"
+                    className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-7 py-3.5 text-sm font-medium text-slate-700 transition duration-300 hover:bg-slate-50 hover:text-slate-900"
+                  >
+                    Μίλησε μαζί μας
                   </a>
                 </div>
 
-                <div className="mt-10 flex flex-wrap items-center gap-3 text-sm text-slate-500">
-                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[#3A8DFF]" />
-                  Πρακτικές λύσεις με καθαρή σκέψη, σωστή δομή και έμφαση στη
-                  λειτουργία.
+                <div className="mt-10 flex flex-wrap gap-3">
+                  {[
+                    { label: "Overview", href: "/loukperi-core", active: true },
+                    { label: "Reports", href: "/loukperi-core/reports" },
+                    { label: "Bridge", href: "/loukperi-core/bridge" },
+                    { label: "Operations", href: "/loukperi-core/operations" },
+                  ].map((tab) => (
+                    <Link
+                      key={tab.label}
+                      href={tab.href}
+                      className={[
+                        "inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition",
+                        tab.active
+                          ? "bg-[#0B1F3A] text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)]"
+                          : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-900",
+                      ].join(" ")}
+                    >
+                      {tab.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
 
-              <div className="relative flex items-center justify-center">
-                <div className="absolute -inset-8 rounded-[48px] bg-[radial-gradient(circle_at_top_right,rgba(58,141,255,0.12),transparent_45%)] blur-2xl" />
-
-                <div className="relative z-10 w-full max-w-[560px] rounded-[30px] border border-slate-200/80 bg-white/90 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur">
-                  <div className="mb-6 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200/80 bg-slate-50">
-                        <Image
-                          src="/logo-icon-flat.png"
-                          alt="LoukPeri"
-                          width={24}
-                          height={24}
-                          className="h-6 w-6 object-contain"
-                        />
-                      </div>
-
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
-                          LoukPeri
-                        </p>
-                        <h3 className="mt-1 text-2xl font-semibold text-slate-950">
-                          Καθημερινή Εικόνα
-                        </h3>
-                      </div>
+              <div className="relative">
+                <SoftCard className="p-5 sm:p-6">
+                  <div className="mb-6 flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
+                        Platform Architecture
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold text-slate-950">
+                        LoukPeri Core
+                      </h3>
                     </div>
 
                     <span className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
-                      Προσαρμοσμένο setup
+                      Modular Setup
                     </span>
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {[
-                      ["Παραγγελίες", "124", "Σημερινή εικόνα"],
-                      ["Εκκρεμότητες", "8", "Απαιτούν ενέργεια"],
-                      ["Αποθέματα", "Live", "Συγκεντρωμένη εικόνα"],
-                      ["Ροές εργασίας", "Auto", "Λιγότερη χειροκίνητη δουλειά"],
-                    ].map(([label, value, note]) => (
+                  <div className="space-y-4">
+                    {modules.map((module) => (
                       <div
-                        key={label}
-                        className="rounded-2xl border border-slate-200/80 bg-slate-50 p-4"
+                        key={module.title}
+                        className="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-4"
                       >
-                        <div className="text-sm text-slate-500">{label}</div>
-                        <div className="mt-2 text-2xl font-semibold text-slate-950">
-                          {value}
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className="text-lg font-semibold text-slate-900">
+                              {module.title}
+                            </p>
+                            <p className="mt-1 text-sm leading-6 text-slate-600">
+                              {module.description}
+                            </p>
+                          </div>
                         </div>
-                        <div className="mt-1 text-sm text-slate-400">
-                          {note}
+
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {module.points.map((point) => (
+                            <span
+                              key={point}
+                              className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600"
+                            >
+                              {point}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-5 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm text-slate-500">
-                        Επιχειρησιακή ορατότητα
-                      </span>
-                      <span className="text-sm font-medium text-blue-700">
-                        Καλύτερος συντονισμός
-                      </span>
-                    </div>
-
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100">
-                      <div className="h-full w-[72%] rounded-full bg-[#3A8DFF]" />
+                  <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/70 p-4">
+                    <p className="text-sm font-medium text-slate-900">
+                      Shared platform foundations
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {foundations.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm"
+                        >
+                          {item}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                </div>
+                </SoftCard>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="services" className={`${sectionClass} bg-white`}>
-          <div className={containerClass}>
+        <section id="how-it-works" className="relative py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="ΥΠΗΡΕΣΙΕΣ"
-              title="Τι μπορούμε να υλοποιήσουμε"
-              description="Η LoukPeri δημιουργεί επιχειρησιακά συστήματα που βοηθούν τις εταιρείες να οργανώσουν καλύτερα τη δουλειά τους, να μειώσουν τη χειροκίνητη διαχείριση και να αποκτήσουν καθαρή εικόνα των διαδικασιών τους."
+              eyebrow="How it works"
+              title="Πώς λειτουργεί στην πράξη"
+              description="Δεν πρόκειται για 3 άσχετα προϊόντα. Είναι μία κοινή πλατφόρμα όπου ενεργοποιείς τα modules που χρειάζεται η επιχείρησή σου."
             />
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {services.map((item) => (
-                <GlassCard key={item.title} className="h-full">
-                  <h3 className="text-lg font-semibold text-slate-950">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
-                    {item.description}
-                  </p>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={`${sectionClass} bg-slate-50/80`}>
-          <div className={containerClass}>
-            <SectionHeader
-              eyebrow="ΓΙΑΤΙ LOUKPERI"
-              title="Γιατί LoukPeri"
-              description="Η προσέγγισή μας βασίζεται στην ουσία: καταλαβαίνουμε τη λειτουργία της επιχείρησης και σχεδιάζουμε λύσεις που βγάζουν νόημα στην πράξη."
-            />
-
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {reasons.map((item, index) => (
-                <GlassCard key={item.title}>
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-700">
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-slate-950">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-600">
-                        {item.description}
-                      </p>
-                    </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  step: "01",
+                  title: "Ξεκινάς από το σωστό σημείο",
+                  text: "Συνήθως από Reports για ορατότητα, από Bridge για integrations ή από Operations για πιο οργανωμένη καθημερινότητα.",
+                },
+                {
+                  step: "02",
+                  title: "Πατάς σε κοινή βάση",
+                  text: "Users, roles, companies, logs, settings και integrations δεν ξαναστήνονται από την αρχή για κάθε ανάγκη.",
+                },
+                {
+                  step: "03",
+                  title: "Επεκτείνεσαι σταδιακά",
+                  text: "Καθώς ωριμάζει η ανάγκη, ενεργοποιείς και τα υπόλοιπα modules χωρίς να σπάει η συνοχή του συστήματος.",
+                },
+              ].map((item) => (
+                <SoftCard key={item.step}>
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0B1F3A] text-sm font-semibold text-white">
+                    {item.step}
                   </div>
-                </GlassCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={`${sectionClass} bg-white`}>
-          <div className={containerClass}>
-            <SectionHeader
-              eyebrow="ΣΕΝΑΡΙΑ ΕΦΑΡΜΟΓΗΣ"
-              title="Ενδεικτικά σενάρια εφαρμογής"
-              description="Παρακάτω βλέπετε παραδείγματα του τύπου λύσεων που μπορούμε να σχεδιάσουμε και να υλοποιήσουμε, ανάλογα με τις ανάγκες κάθε επιχείρησης."
-            />
-
-            <div className="mt-12 grid gap-6 xl:grid-cols-3">
-              {scenarios.map((item) => (
-                <GlassCard key={item.title} className="h-full">
                   <h3 className="text-xl font-semibold text-slate-950">
                     {item.title}
                   </h3>
-
-                  <div className="mt-6 space-y-6">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-500">
-                        Πρόβλημα
-                      </p>
-                      <p className="mt-2 text-sm leading-7 text-slate-600">
-                        {item.problem}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
-                        Τι μπορούμε να υλοποιήσουμε
-                      </p>
-                      <p className="mt-2 text-sm leading-7 text-slate-700">
-                        {item.solution}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600">
-                        Στόχος
-                      </p>
-                      <p className="mt-2 text-sm leading-7 text-slate-700">
-                        {item.goal}
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {item.text}
+                  </p>
+                </SoftCard>
               ))}
             </div>
           </div>
         </section>
 
-        <section
-          id="process"
-          className={`${sectionClass} bg-[linear-gradient(to_bottom,_rgba(58,141,255,0.04),_rgba(255,255,255,0.9))]`}
-        >
-          <div className={containerClass}>
+        <section id="what-it-solves" className="relative py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <SectionHeader
-              eyebrow="ΠΩΣ ΔΟΥΛΕΥΟΥΜΕ"
-              title="Πώς δουλεύουμε"
-              description="Κάθε συνεργασία ξεκινά από κατανόηση της πραγματικής ανάγκης και προχωρά σε λύση με ξεκάθαρα βήματα."
-              align="center"
+              eyebrow="What it solves"
+              title="Τι λύνει το LoukPeri Core"
+              description="Το προϊόν έχει νόημα όταν η επιχείρηση έχει ταυτόχρονα ανάγκη για εικόνα, ροή δεδομένων και καθαρότερη λειτουργία."
             />
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {processSteps.map((step, index) => (
-                <GlassCard key={step.title} className="h-full">
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-700">
-                    {index + 1}
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-950">
-                    {step.title}
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              {problems.map((item) => (
+                <SoftCard key={item.title}>
+                  <h3 className="text-xl font-semibold text-slate-950">
+                    {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
-                    {step.description}
+                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                    {item.text}
                   </p>
-                </GlassCard>
+                </SoftCard>
               ))}
             </div>
           </div>
         </section>
 
-        <section className={sectionClass}>
-          <div className="mx-auto max-w-4xl px-6 lg:px-8">
-            <div className="rounded-[32px] border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-slate-50 px-6 py-10 text-center shadow-[0_18px_50px_rgba(59,130,246,0.08)] sm:px-10 sm:py-12">
-              <span className="inline-flex rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
-                ΔΩΡΕΑΝ ΑΞΙΟΛΟΓΗΣΗ
-              </span>
+        <section id="customization" className="relative py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <SectionHeader
+              eyebrow="Customization"
+              title="Προσαρμογή ανά πελάτη, όχι one-size-fits-all"
+              description="Η ίδια πλατφόρμα μπορεί να ενεργοποιείται διαφορετικά ανά επιχείρηση, ανάλογα με το pain point και το maturity level."
+            />
 
-              <h2 className="mt-6 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                Δωρεάν αρχική αξιολόγηση
-              </h2>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              {modules.map((module) => (
+                <SoftCard key={module.title} className="h-full">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-slate-950">
+                        {module.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-600">
+                        {module.description}
+                      </p>
+                    </div>
+                  </div>
 
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                Σε μια πρώτη σύντομη συνάντηση βλέπουμε πού υπάρχουν χειροκίνητες
-                διαδικασίες, καθυστερήσεις ή έλλειψη καθαρής εικόνας και
-                συζητάμε ποιο μπορεί να είναι το πρώτο σωστό βήμα.
-              </p>
-
-              <div className="mt-8">
-                <a
-                  href="mailto:info@loukperi.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%B3%CE%B9%CE%B1%20%CE%B4%CF%89%CF%81%CE%B5%CE%AC%CE%BD%20%CE%B1%CF%81%CF%87%CE%B9%CE%BA%CE%AE%20%CE%B1%CE%BE%CE%B9%CE%BF%CE%BB%CF%8C%CE%B3%CE%B7%CF%83%CE%B7"
-                  className={primaryButtonClass}
-                >
-                  Κλείσε συνάντηση
-                </a>
-              </div>
-
-              <p className="mt-5 text-sm leading-7 text-slate-500">
-                Χωρίς δέσμευση. Με πρακτική προσέγγιση και καθαρή συζήτηση πάνω
-                στην ανάγκη σας.
-              </p>
+                  <Link
+                    href={module.href}
+                    className="mt-6 inline-flex items-center text-sm font-semibold text-blue-700 transition hover:text-slate-900"
+                  >
+                    Άνοιγμα module →
+                  </Link>
+                </SoftCard>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className={`${sectionClass} bg-white`}>
+        <section id="for-whom" className="relative py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <SectionHeader
+              eyebrow="For whom"
+              title="Για ποιους είναι"
+              description="Το LoukPeri Core δεν απευθύνεται σε μία μόνο κατηγορία εταιρειών. Απευθύνεται σε επιχειρήσεις που έχουν λειτουργικές τριβές και θέλουν modular βελτίωση."
+            />
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {audiences.map((item) => (
+                <SoftCard key={item}>
+                  <p className="text-sm leading-7 text-slate-700">{item}</p>
+                </SoftCard>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="pilot" className="relative py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <SoftCard>
+                <SectionHeader
+                  eyebrow="Pilot"
+                  title="Η σωστή πρώτη υλοποίηση"
+                  description="Στις περισσότερες περιπτώσεις, η πιο σωστή εκκίνηση είναι από το module που δίνει το πιο άμεσο επιχειρησιακό αποτέλεσμα."
+                />
+
+                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                  {[
+                    {
+                      label: "Reports",
+                      text: "όταν λείπει η εικόνα",
+                    },
+                    {
+                      label: "Bridge",
+                      text: "όταν πονάνε οι διασυνδέσεις",
+                    },
+                    {
+                      label: "Operations",
+                      text: "όταν πονάει η καθημερινή ροή",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                    >
+                      <p className="text-sm font-semibold text-slate-900">
+                        {item.label}
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-slate-600">
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </SoftCard>
+
+              <div className="rounded-3xl border border-blue-100 bg-blue-50/70 p-6 shadow-[0_12px_36px_rgba(15,23,42,0.05)]">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
+                  Recommended approach
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold text-slate-950">
+                  Ξεκίνα lean. Επέκτεινε modular.
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Έτσι αποκτάς γρηγορότερα αποτέλεσμα, κρατάς καθαρό scope και
+                  αποφεύγεις το “να τα λύσουμε όλα μαζί” από την πρώτη φάση.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="relative py-16 md:py-24">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <SectionHeader
-              eyebrow="ΕΠΙΚΟΙΝΩΝΙΑ"
-              title="Έχει η επιχείρησή σας διαδικασίες που καθυστερούν;"
-              description="Αν υπάρχουν Excel, επαναλαμβανόμενες χειροκίνητες ενέργειες ή δυσκολία στην παρακολούθηση της καθημερινής λειτουργίας, μπορούμε να δούμε μαζί τι αξίζει να οργανωθεί πρώτο."
-              align="center"
+              eyebrow="Contact"
+              title="Θες να δούμε ποιο module είναι το σωστό πρώτο βήμα;"
+              description="Μπορούμε να συζητήσουμε την ανάγκη σου και να δούμε αν ξεκινάς από Reports, Bridge ή Operations — πάντα με βάση το πραγματικό operational pain point."
+              center
             />
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="mailto:info@loukperi.gr?subject=%CE%95%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BD%20%CE%B3%CE%B9%CE%B1%20%CF%83%CF%85%CE%BD%CE%B5%CF%81%CE%B3%CE%B1%CF%83%CE%AF%CE%B1"
-                className={primaryButtonClass}
+                href="/#contact"
+                className="inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]"
               >
                 Κλείσε συνάντηση
               </a>
 
-              <div className="[&>button]:inline-flex [&>button]:items-center [&>button]:justify-center [&>button]:rounded-2xl [&>button]:border [&>button]:border-slate-200 [&>button]:bg-white [&>button]:px-7 [&>button]:py-3.5 [&>button]:text-sm [&>button]:font-medium [&>button]:text-slate-700 [&>button]:transition [&>button]:duration-300 hover:[&>button]:bg-slate-50 hover:[&>button]:text-slate-900">
-                <InstallPWAButton label="Εγκατάσταση εφαρμογής" />
-              </div>
+              <a
+                href="mailto:info@loukperi.gr?subject=Ενδιαφέρον%20για%20LoukPeri%20Core"
+                className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-7 py-3.5 text-sm font-medium text-slate-700 transition duration-300 hover:bg-slate-50 hover:text-slate-900"
+              >
+                Στείλε email
+              </a>
             </div>
           </div>
         </section>
