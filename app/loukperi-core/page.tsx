@@ -161,7 +161,7 @@ export default function LoukPeriCoreOverviewPage() {
 
                 <div className="mt-10 flex flex-wrap gap-4">
                   <Link
-                    href="/#customization"
+                    href="#customization"
                     className="inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]"
                   >
                     Δες όλα τα modules
