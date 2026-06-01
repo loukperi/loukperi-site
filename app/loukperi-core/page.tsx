@@ -161,10 +161,10 @@ export default function LoukPeriCoreOverviewPage() {
 
                 <div className="mt-10 flex flex-wrap gap-4">
                   <Link
-                    href="/loukperi-core/reports"
+                    href="/#customization"
                     className="inline-flex items-center justify-center rounded-2xl bg-[#0B1F3A] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(11,31,58,0.18)] transition duration-300 hover:bg-[#11284a]"
                   >
-                    Δες τα modules
+                    Δες όλα τα modules
                   </Link>
 
                   <a
@@ -374,15 +374,15 @@ export default function LoukPeriCoreOverviewPage() {
                   {[
                     {
                       label: "Reports",
-                      text: "όταν λείπει η εικόνα",
+                      text: "όταν χρειάζεται καθαρή εικόνα",
                     },
                     {
                       label: "Bridge",
-                      text: "όταν πονάνε οι διασυνδέσεις",
+                      text: "όταν χρειάζονται αξιόπιστες διασυνδέσεις",
                     },
                     {
                       label: "Operations",
-                      text: "όταν πονάει η καθημερινή ροή",
+                      text: "όταν χρειάζεται πιο οργανωμένη καθημερινή λειτουργία",
                     },
                   ].map((item) => (
                     <div
