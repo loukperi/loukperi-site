@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import InstallPWAButton from "./components/InstallPWAButton";
 import BackToTopButton from "./components/BackToTopButton";
 import SiteNavbar from "./components/SiteNavbar";
