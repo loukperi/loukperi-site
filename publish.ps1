@@ -1,5 +1,5 @@
 param(
-    [string]$Message = "whatever"
+    [string]$Message = "Add loukperi core module pages"
 )
 
 git add .

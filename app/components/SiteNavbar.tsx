@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,33 +10,16 @@ export default function SiteNavbar({
   currentPath?: string;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
 
-  const isCorePage = currentPath === "/loukperi-core";
+  const isCorePath = currentPath.startsWith("/loukperi-core");
 
-  const coreSections = useMemo(
-    () => [
-      "what-is",
-      "how-it-works",
-      "what-it-solves",
-      "customization",
-      "for-whom",
-      "pilot",
-      "contact",
-    ],
-    []
-  );
-
-  const navItems = isCorePage
+  const navItems = isCorePath
     ? [
-        { label: "Αρχική", href: "/" },
-        { label: "LoukPeri Core", href: "/loukperi-core" },
-        { label: "Τι είναι", href: "/loukperi-core#what-is" },
-        { label: "Πώς δουλεύει", href: "/loukperi-core#how-it-works" },
-        { label: "Τι λύνει", href: "/loukperi-core#what-it-solves" },
-        { label: "Προσαρμογή", href: "/loukperi-core#customization" },
-        { label: "Για ποιους είναι", href: "/loukperi-core#for-whom" },
-        { label: "Επικοινωνία", href: "/loukperi-core#contact" },
+        { label: "Overview", href: "/loukperi-core" },
+        { label: "Reports", href: "/loukperi-core/reports" },
+        { label: "Bridge", href: "/loukperi-core/bridge" },
+        { label: "Operations", href: "/loukperi-core/operations" },
+        { label: "Επικοινωνία", href: "/#contact" },
       ]
     : [
         { label: "Υπηρεσίες", href: "/#services" },
@@ -54,94 +37,24 @@ export default function SiteNavbar({
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setMobileOpen(false);
-      }
+      if (event.key === "Escape") setMobileOpen(false);
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  useEffect(() => {
-    if (!isCorePage) {
-      setActiveSection("");
-      return;
-    }
-
-    const updateActiveSection = () => {
-      const headerOffset = 110;
-      const scrollPosition = window.scrollY + headerOffset;
-
-      let current = "";
-
-      for (const id of coreSections) {
-        const element = document.getElementById(id);
-        if (!element) continue;
-
-        const top = element.offsetTop;
-        if (scrollPosition >= top) {
-          current = id;
-        }
-      }
-
-      setActiveSection(current);
-    };
-
-    updateActiveSection();
-
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
-    window.addEventListener("hashchange", updateActiveSection);
-
-    return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
-      window.removeEventListener("hashchange", updateActiveSection);
-    };
-  }, [isCorePage, coreSections]);
-
   const closeMobileMenu = () => setMobileOpen(false);
 
-  const handleAnchorClick = (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    if (!isCorePage) return;
-    if (!href.startsWith("/loukperi-core#")) return;
-
-    const hash = href.split("#")[1];
-    const target = document.getElementById(hash);
-
-    if (!target) return;
-
-    event.preventDefault();
-
-    const headerOffset = 96;
-    const targetTop =
-      target.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-    window.history.replaceState(null, "", href);
-    window.scrollTo({
-      top: targetTop,
-      behavior: "smooth",
-    });
-
-    setActiveSection(hash);
-    closeMobileMenu();
-  };
-
   const isActive = (href: string) => {
+    if (href === "/loukperi-core") return currentPath === "/loukperi-core";
+    if (href === "/loukperi-core/reports")
+      return currentPath === "/loukperi-core/reports";
+    if (href === "/loukperi-core/bridge")
+      return currentPath === "/loukperi-core/bridge";
+    if (href === "/loukperi-core/operations")
+      return currentPath === "/loukperi-core/operations";
     if (href === "/") return currentPath === "/";
-    if (href === "/loukperi-core") {
-      return currentPath === "/loukperi-core" && !activeSection;
-    }
-
-    if (isCorePage && href.startsWith("/loukperi-core#")) {
-      const hash = href.split("#")[1];
-      return activeSection === hash;
-    }
-
     return false;
   };
 
@@ -172,7 +85,6 @@ export default function SiteNavbar({
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleAnchorClick(e, item.href)}
                 className={[
                   "relative rounded-full px-4 py-2 text-sm font-medium transition duration-300",
                   isActive(item.href)
@@ -246,9 +158,7 @@ export default function SiteNavbar({
                   <p className="text-sm font-semibold tracking-[0.18em] text-slate-400">
                     MENU
                   </p>
-                  <p className="text-base font-semibold text-white">
-                    LoukPeri
-                  </p>
+                  <p className="text-base font-semibold text-white">LoukPeri</p>
                 </div>
               </div>
 
@@ -268,12 +178,7 @@ export default function SiteNavbar({
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={(e) => {
-                      handleAnchorClick(e, item.href);
-                      if (!item.href.startsWith("/loukperi-core#")) {
-                        closeMobileMenu();
-                      }
-                    }}
+                    onClick={closeMobileMenu}
                     className={[
                       "rounded-2xl px-4 py-3.5 text-sm font-medium transition duration-300",
                       isActive(item.href)
@@ -291,8 +196,7 @@ export default function SiteNavbar({
                   LoukPeri Core
                 </p>
                 <p className="mt-2 text-sm leading-6 text-slate-300">
-                  Business systems, dashboards και automations για πιο καθαρή
-                  καθημερινή λειτουργία.
+                  Μία modular πλατφόρμα με Reports, Bridge και Operations.
                 </p>
 
                 <Link
