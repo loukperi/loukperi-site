@@ -442,7 +442,7 @@ export default function LoukPeriLandingPage() {
         <section className={`${sectionClass} bg-slate-50/80`}>
           <div className={containerClass}>
             <SectionHeader
-              eyebrow="ΓΙΑΤΙ LOUKPERI"
+              eyebrow="ΠΡΟΣΕΓΓΙΣΗ"
               title="Γιατί LoukPeri"
               description="Η προσέγγισή μας βασίζεται στην ουσία: καταλαβαίνουμε τη λειτουργία της επιχείρησης και σχεδιάζουμε λύσεις που βγάζουν νόημα στην πράξη."
             />
@@ -472,7 +472,7 @@ export default function LoukPeriLandingPage() {
         <section className={`${sectionClass} bg-white`}>
           <div className={containerClass}>
             <SectionHeader
-              eyebrow="ΣΕΝΑΡΙΑ ΕΦΑΡΜΟΓΗΣ"
+              eyebrow="ΠΑΡΑΔΕΙΓΜΑΤΑ"
               title="Ενδεικτικά σενάρια εφαρμογής"
               description="Παρακάτω βλέπετε παραδείγματα του τύπου λύσεων που μπορούμε να σχεδιάσουμε και να υλοποιήσουμε, ανάλογα με τις ανάγκες κάθε επιχείρησης."
             />
@@ -524,7 +524,7 @@ export default function LoukPeriLandingPage() {
         >
           <div className={containerClass}>
             <SectionHeader
-              eyebrow="ΠΩΣ ΔΟΥΛΕΥΟΥΜΕ"
+              eyebrow="ΔΙΑΔΙΚΑΣΙΑ"
               title="Πώς δουλεύουμε"
               description="Κάθε συνεργασία ξεκινά από κατανόηση της πραγματικής ανάγκης και προχωρά σε λύση με ξεκάθαρα βήματα."
               align="center"
@@ -552,7 +552,7 @@ export default function LoukPeriLandingPage() {
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <div className="rounded-[32px] border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-slate-50 px-6 py-10 text-center shadow-[0_18px_50px_rgba(59,130,246,0.08)] sm:px-10 sm:py-12">
               <span className="inline-flex rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-blue-700">
-                ΔΩΡΕΑΝ ΑΞΙΟΛΟΓΗΣΗ
+                ΠΡΩΤΟ ΒΗΜΑ
               </span>
 
               <h2 className="mt-6 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
